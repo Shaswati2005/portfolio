@@ -75,6 +75,18 @@ export default function HeroSection() {
       />
       <div className="absolute inset-0 bg-black/60 z-10" />
       
+      {/* Sun Rays Effect */}
+      <div className="absolute top-1/2 left-1/2 h-[150vmax] w-[150vmax] -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none opacity-70 blur-2xl">
+        <div
+          className="h-full w-full animate-sun-rays"
+          style={{
+            background: 'conic-gradient(from 180deg at 50% 50%, #ff6347, #ffd700, #3cb371, #48d1cc, #8a2be2, #ff1493, #ff6347)',
+            maskImage: 'repeating-conic-gradient(from 0deg, #000 0% 1.5%, transparent 1.5% 10%)',
+            WebkitMaskImage: 'repeating-conic-gradient(from 0deg, #000 0% 1.5%, transparent 1.5% 10%)',
+          }}
+        />
+      </div>
+
 
       <div className="relative z-30 container flex flex-col items-center justify-center px-4">
         <div className="flex flex-col items-center gap-6">
