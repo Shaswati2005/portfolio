@@ -9,7 +9,7 @@ export default function AboutSection() {
           <div className="md:col-span-2">
             <div className="relative aspect-square w-full max-w-sm mx-auto">
               <div className="absolute -inset-2 border-2 border-primary/20 rounded-full animate-pulse-slow" style={{ animationDelay: '0.5s' }} />
-              <div className="absolute -inset-4 border border-primary/10 rounded-full animate-pulse-slow" style={{ animationDelay: '1s' }}/>
+              <div className="absolute -inset-4 border-primary/10 rounded-full animate-pulse-slow" style={{ animationDelay: '1s' }}/>
               <Image
                 src="https://placehold.co/600x600.png"
                 alt="A portrait of Sakura"
@@ -22,17 +22,24 @@ export default function AboutSection() {
           </div>
           <div className="md:col-span-3 space-y-6 relative">
              {/* Tree Decoration */}
-            <div className="pointer-events-none absolute -right-40 -top-32 w-[600px] h-auto opacity-30 hidden lg:block z-0">
-               <div className="absolute inset-0 bg-primary/25 rounded-full blur-[120px]" />
+            <div className="pointer-events-none absolute -right-40 -top-32 w-[600px] h-auto opacity-40 hidden lg:block z-0">
+               <div className="absolute inset-0 bg-primary/30 rounded-full blur-[130px] animate-pulse-slow" style={{animationDuration: '8s'}} />
                <div className="animate-sway" style={{ transformOrigin: '10% 90%', animationDuration: '30s', animationDelay: '-5s' }}>
                   <Image
                     src="/tree.png"
                     alt="Cherry blossom tree"
                     width={600}
                     height={450}
-                    className="transform rotate-[-20deg] scale-150"
+                    className="transform rotate-[20deg] scale-150"
                   />
-              </div>
+                </div>
+                {/* The hill below the tree */}
+                <div 
+                    className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[180%] h-[150px] bg-background"
+                    style={{
+                        maskImage: 'radial-gradient(ellipse 80% 100% at 50% 100%, black 40%, transparent 70%)'
+                    }}
+                />
             </div>
 
             <div className="space-y-4 relative z-10">
