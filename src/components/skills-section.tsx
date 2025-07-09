@@ -4,7 +4,8 @@ import SkillBranch from '@/components/skill-branch';
 export default function SkillsSection() {
   const skills = [
     'React', 'Next.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 
-    'Tailwind CSS', 'Node.js', 'Firebase', 'Figma', 'UI/UX Design', 'Responsive Design'
+    'Tailwind CSS', 'Node.js', 'Firebase', 'SQL', 'Mongo DB', 'C', 'C++', 'DSA', 
+    'Competitive Programming', 'Figma', 'UI/UX Design', 'Responsive Design'
   ];
 
   return (
