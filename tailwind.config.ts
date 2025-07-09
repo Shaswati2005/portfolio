@@ -103,12 +103,32 @@ export default {
           'from': { opacity: '0', transform: 'translateY(10px)' },
           'to': { opacity: '1', transform: 'translateY(0)' },
         },
+        'sway': {
+          '0%, 100%': { transform: 'rotate(-2deg)' },
+          '50%': { transform: 'rotate(2deg)' },
+        },
+        'halo': {
+          'from': { transform: 'scale(1)', opacity: '0.4' },
+          'to': { transform: 'scale(2.5)', opacity: '0' },
+        },
+        'petal-toss': {
+          '0%': { transform: 'translate(0, 0) rotate(0deg)', opacity: '1' },
+          '100%': { transform: 'translate(var(--petal-end-x), var(--petal-end-y)) rotate(var(--petal-end-rotation))', opacity: '0' },
+        },
+        'button-press': {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(0.98)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in': 'fade-in 0.5s ease-out forwards',
         'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
+        'sway': 'sway 12s ease-in-out infinite alternate',
+        'halo': 'halo 0.8s ease-out forwards',
+        'petal-toss': 'petal-toss 1s ease-out forwards',
+        'button-press': 'button-press 0.3s ease-in-out',
       },
     },
   },
