@@ -25,7 +25,7 @@ const sendEmailFlow = ai.defineFlow(
         console.error("Missing required environment variables for sending email.");
         return {
             success: false,
-            message: 'Server configuration error. Could not send email.',
+            message: 'Server configuration error: One or more EMAIL_SERVER environment variables are not set.',
         };
     }
 
@@ -58,6 +58,7 @@ const sendEmailFlow = ai.defineFlow(
 
     try {
         await transporter.verify();
+        console.log('--- SMTP Configuration Verified ---');
         await transporter.sendMail(mailOptions);
         console.log('--- Email Sent Successfully ---');
         return {
@@ -66,9 +67,10 @@ const sendEmailFlow = ai.defineFlow(
         };
     } catch (error) {
         console.error('Error sending email:', error);
+        const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred during email transport.';
         return {
             success: false,
-            message: 'There was a problem sending your message. Please try again later.',
+            message: `Failed to send email. Reason: ${errorMessage}`,
         };
     }
   }
