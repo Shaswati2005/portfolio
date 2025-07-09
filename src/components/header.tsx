@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { CherryBlossomIcon } from '@/components/icons/cherry-blossom-icon';
+import { DetailedCherryBlossomIcon } from '@/components/icons/detailed-cherry-blossom-icon';
 import { cn } from '@/lib/utils';
 
 export default function Header() {
@@ -47,27 +47,33 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/10 backdrop-blur-xl supports-[backdrop-filter]:bg-background/5">
       <div className="container flex h-16 items-center">
         <Link href="#home" className="flex items-center gap-2 mr-6">
-          <CherryBlossomIcon className="h-6 w-6 text-primary" />
+          <DetailedCherryBlossomIcon className="h-6 w-6 text-primary" />
           <span className="font-bold font-headline">Sakura Portfolio</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           {navItems.map((link) => (
-            <div key={link.href} className="relative flex flex-col items-center">
-              <Link
-                href={link.href}
-                className={cn(
-                  'py-2 transition-colors hover:text-foreground/80',
-                  activeLink === link.href
-                    ? 'font-bold text-foreground'
-                    : 'text-foreground/60'
-                )}
-              >
-                {link.label}
-              </Link>
-              {activeLink === link.href && (
-                <CherryBlossomIcon className="h-4 w-4 text-primary absolute -bottom-3 animate-fade-in" />
+            <Link
+              key={link.href}
+              href={link.href}
+              className={cn(
+                'flex items-center gap-2 py-2 transition-colors hover:text-foreground/80',
+                activeLink === link.href
+                  ? 'font-bold text-foreground'
+                  : 'text-foreground/60'
               )}
-            </div>
+            >
+              <div className="flex h-4 w-4 items-center justify-center">
+                <DetailedCherryBlossomIcon
+                  className={cn(
+                    'h-full w-full text-primary transition-all duration-300 ease-in-out',
+                    activeLink === link.href
+                      ? 'scale-100 opacity-100'
+                      : 'scale-0 opacity-0'
+                  )}
+                />
+              </div>
+              <span>{link.label}</span>
+            </Link>
           ))}
         </nav>
         <div className="flex flex-1 items-center justify-end">

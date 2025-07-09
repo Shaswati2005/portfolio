@@ -1,4 +1,4 @@
-import { CherryBlossomIcon } from '@/components/icons/cherry-blossom-icon';
+import { DetailedCherryBlossomIcon } from '@/components/icons/detailed-cherry-blossom-icon';
 import { Github, Linkedin, Twitter } from 'lucide-react';
 
 export default function Footer() {
@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="bg-background border-t">
       <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
         <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-          <CherryBlossomIcon className="h-6 w-6 text-primary" />
+          <DetailedCherryBlossomIcon className="h-6 w-6 text-primary" />
           <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
             Built by Sakura. © {new Date().getFullYear()}. All rights reserved.
           </p>
