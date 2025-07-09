@@ -11,21 +11,26 @@ const JourneyPathBackground = (props: SVGProps<SVGSVGElement>) => (
                 <stop offset="0%" stopColor="hsl(var(--secondary) / 0.2)" />
                 <stop offset="100%" stopColor="hsl(var(--background) / 0.5)" />
             </linearGradient>
-            {/* The path SVG for cards to follow visually */}
             <path id="journey-path-visual" d="M 200 680 Q 450 550, 600 450 T 1000 250" stroke="hsl(var(--primary) / 0.15)" strokeWidth="60" strokeDasharray="1 15" strokeLinecap="round" fill="none" />
+             <filter id="misty">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
+            </filter>
         </defs>
         <rect width="1200" height="800" fill="url(#sky)" />
 
-        {/* Distant mountains */}
-        <path d="M -50,500 150,350 300,480 450,300 600,550 800,400 950,520 1250,300 1250,800 -50,800 Z" fill="hsl(var(--muted) / 0.4)" />
-        
-        {/* Foreground hill */}
-        <path d="M -50,800 C 200,800 300,600 600,650 C 900,700 1100,550 1250,600 L 1250,800 Z" fill="hsl(var(--card) / 0.4)" />
-
-        <use href="#journey-path-visual" />
-
         {/* Sun/Moon */}
         <circle cx="1050" cy="150" r="30" fill="hsl(var(--primary))" opacity="0.6" />
+
+        <g opacity="0.8" filter="url(#misty)">
+            {/* Distant mountains */}
+            <path d="M -100 800 V 500 C 150 400, 300 550, 500 500 C 700 450, 850 550, 1050 500 C 1250 450, 1300 500, 1300 500 V 800 Z" fill="hsl(var(--muted) / 0.3)" />
+            {/* Mid mountains */}
+            <path d="M -100 800 V 600 C 200 550, 400 650, 600 600 C 800 550, 950 650, 1150 600 C 1350 550, 1300 600, 1300 600 V 800 Z" fill="hsl(var(--muted) / 0.5)" />
+            {/* Foreground hill */}
+            <path d="M -100 800 V 700 C 300 650, 500 750, 800 700 C 1100 650, 1300 750, 1300 750 V 800 Z" fill="hsl(var(--card) / 0.6)" />
+        </g>
+
+        <use href="#journey-path-visual" />
     </svg>
 );
 
