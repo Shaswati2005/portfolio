@@ -22,7 +22,7 @@ const AnimatedButton = ({ children, isAnimating, onAnimate, ...props }: Animated
         '--petal-end-y': `${(Math.random() - 0.5) * 350}px`,
         '--petal-end-rotation': `${(Math.random() - 0.5) * 720}deg`,
         animationDelay: `${Math.random() * 0.3}s`,
-        color: `hsl(var(--accent) / ${Math.random() * 0.5 + 0.5})`,
+        color: `hsl(var(--primary) / ${Math.random() * 0.5 + 0.5})`,
       } as React.CSSProperties,
     }));
 
