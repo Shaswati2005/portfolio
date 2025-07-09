@@ -1,6 +1,6 @@
 'use client';
 
-import { Github, Linkedin, Mail, CodeXml } from 'lucide-react';
+import { Github, Linkedin, Mail, CodeXml, FileText } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { LeetCodeIcon } from './icons/leetcode-icon';
 import { DetailedCherryBlossomIcon } from './icons/detailed-cherry-blossom-icon';
@@ -40,6 +40,13 @@ const socialLinks = [
     handle: '@your-username',
     href: '#',
     cta: 'View Profile'
+  },
+  {
+    icon: <FileText className="h-8 w-8 text-primary" />,
+    name: 'Resume',
+    handle: 'View my credentials',
+    href: '#',
+    cta: 'Open Drive Link'
   },
 ];
 
