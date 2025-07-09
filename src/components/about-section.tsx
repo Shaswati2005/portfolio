@@ -3,8 +3,22 @@ import { DetailedCherryBlossomIcon } from './icons/detailed-cherry-blossom-icon'
 
 export default function AboutSection() {
   return (
-    <section id="about" className="w-full py-20 md:py-32 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="about" className="relative w-full py-20 md:py-32 bg-background overflow-hidden">
+      {/* Branch Decoration */}
+      <div className="pointer-events-none absolute -left-24 top-16 w-[500px] h-auto opacity-40 hidden lg:block z-0">
+         <div className="absolute inset-0 bg-primary/20 rounded-full blur-[100px]" />
+         <div className="animate-sway" style={{ transformOrigin: '90% 90%', animationDuration: '30s' }}>
+            <Image
+              src="/branch.png"
+              alt="Cherry blossom branch"
+              width={500}
+              height={375}
+              className="transform -rotate-[55deg] scale-110"
+            />
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid gap-12 md:grid-cols-5 md:gap-16 items-center">
           <div className="md:col-span-2">
             <div className="relative aspect-square w-full max-w-sm mx-auto">
