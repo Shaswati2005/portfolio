@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -76,7 +77,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black/60 z-10" />
       
       {/* Sun Rays Effect */}
-      <div className="absolute top-[60%] left-1/2 h-[150vmax] w-[150vmax] -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none opacity-20 blur-3xl">
+      <div className="absolute top-[60%] left-1/2 h-[150vmax] w-[150vmax] -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none opacity-30 blur-xl">
         <div
           className="h-full w-full animate-sun-rays"
           style={{
