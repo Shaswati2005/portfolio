@@ -44,7 +44,7 @@ export default function AboutSection() {
 
             <div className="space-y-4 relative z-10">
                <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm text-secondary-foreground">About Me</div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">Elegant Designs, Powerful Code</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">Architecting Digital Experiences</h2>
               <p className="text-foreground/80 md:text-lg/relaxed">
                 Hello! I'm Shaswati Mishra, a passionate full-stack developer who believes that great software is born at the intersection of powerful engineering and thoughtful design. I'm driven to build robust, scalable web applications from the ground up, architecting everything from the database to the user interface. I thrive on the challenge of solving complex problems and transforming ideas into efficient, high-performance digital solutions.
               </p>
