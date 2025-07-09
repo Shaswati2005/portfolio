@@ -1,73 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import { GraduationCap, School, BookOpen } from 'lucide-react';
-import type { SVGProps } from "react";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
+import { CherryBlossomIcon } from '@/components/icons/cherry-blossom-icon';
 
-const JourneyPathBackground = (props: SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMin slice" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <defs>
-            <linearGradient id="journey-sky" x1="0.5" y1="0" y2="1">
-                <stop offset="0%" stopColor="hsl(var(--secondary) / 0.2)" />
-                <stop offset="100%" stopColor="hsl(var(--background) / 0.6)" />
-            </linearGradient>
-            <filter id="misty-glow">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
-            </filter>
-        </defs>
-
-        <rect width="1200" height="800" fill="url(#journey-sky)" />
-
-        <circle cx="250" cy="300" r="100" fill="hsl(var(--primary))" opacity="0.3" filter="url(#misty-glow)" />
-        <circle cx="250" cy="300" r="70" fill="hsl(var(--primary))" opacity="0.5" />
-
-        <path d="M -50 800 C 300 800, 600 500, 1250 350 V 800 Z" fill="hsl(var(--card) / 0.4)" />
-        <path d="M -50 800 C 200 800, 500 600, 1250 450 V 800 Z" fill="hsl(var(--card) / 0.5)" />
-
-        <g transform="translate(950, 150) scale(1.3)">
-            {/* Trunk and main branches */}
-            <path d="M 0 200 C -5 150, -10 140, -20 100" stroke="#4a2c2a" strokeWidth="14" fill="none" strokeLinecap="round"/>
-            <path d="M -20 100 C -30 70, -60 80, -80 50" stroke="#4a2c2a" strokeWidth="10" fill="none" strokeLinecap="round"/>
-            <path d="M -15 120 C 20 110, 40 90, 60 50" stroke="#4a2c2a" strokeWidth="9" fill="none" strokeLinecap="round"/>
-
-            {/* Finer branches */}
-            <path d="M -78 52 C -100 30, -120 40, -130 20" stroke="#4a2c2a" strokeWidth="6" fill="none" strokeLinecap="round"/>
-            <path d="M -75 60 C -60 40, -80 30, -90 20" stroke="#4a2c2a" strokeWidth="4" fill="none" strokeLinecap="round"/>
-            <path d="M 58 52 C 80 30, 110 40, 120 20" stroke="#4a2c2a" strokeWidth="5" fill="none" strokeLinecap="round"/>
-            <path d="M 55 60 C 40 40, 50 30, 70 20" stroke="#4a2c2a" strokeWidth="3" fill="none" strokeLinecap="round"/>
-
-            {/* Blossom Clusters */}
-            <g opacity="1">
-              {/* Top-right clusters */}
-              <circle cx="125" cy="15" r="15" fill="hsl(var(--primary))" />
-              <circle cx="110" cy="30" r="18" fill="hsl(var(--accent))" />
-              <circle cx="130" cy="35" r="12" fill="hsl(var(--primary))" />
-
-              {/* Mid-right clusters */}
-              <circle cx="75" cy="15" r="12" fill="hsl(var(--accent))" />
-              <circle cx="90" cy="25" r="16" fill="hsl(var(--primary))" />
-              <circle cx="70" cy="35" r="14" fill="hsl(var(--accent))" />
-
-              {/* Top-left clusters */}
-              <circle cx="-135" cy="15" r="16" fill="hsl(var(--primary))" />
-              <circle cx="-120" cy="30" r="20" fill="hsl(var(--accent))" />
-              <circle cx="-140" cy="35" r="14" fill="hsl(var(--primary))" />
-
-              {/* Mid-left clusters */}
-              <circle cx="-95" cy="15" r="14" fill="hsl(var(--accent))" />
-              <circle cx="-110" cy="25" r="18" fill="hsl(var(--primary))" />
-              <circle cx="-85" cy="35" r="15" fill="hsl(var(--accent))" />
-              
-              {/* Lower-center clusters */}
-              <circle cx="-30" cy="80" r="18" fill="hsl(var(--primary))" />
-              <circle cx="-45" cy="95" r="15" fill="hsl(var(--accent))" />
-              <circle cx="-15" cy="90" r="16" fill="hsl(var(--primary))" />
-            </g>
-        </g>
-    </svg>
-);
-
-
+// Chronological journey data
 const journeyData = [
   {
     icon: <BookOpen className="h-8 w-8 text-primary" />,
@@ -75,7 +13,6 @@ const journeyData = [
     institution: "School Name",
     period: "Completed",
     description: "Excelled in foundational subjects, achieving a score of 96.8%.",
-    gridPosition: "md:row-start-3 md:col-start-1"
   },
   {
     icon: <School className="h-8 w-8 text-primary" />,
@@ -83,7 +20,6 @@ const journeyData = [
     institution: "High School Name",
     period: "Completed",
     description: "Focused on science and mathematics, scoring 94% and building a strong foundation for engineering.",
-    gridPosition: "md:row-start-2 md:col-start-2"
   },
   {
     icon: <GraduationCap className="h-8 w-8 text-primary" />,
@@ -91,39 +27,92 @@ const journeyData = [
     institution: "University Name",
     period: "Enrolled",
     description: "Currently pursuing a degree in Computer Science, focusing on Full-Stack Development and AI/ML.",
-    gridPosition: "md:row-start-1 md:col-start-3"
   }
 ];
 
 export default function JourneySection() {
+    const [activeIndex, setActiveIndex] = useState<number>(0);
+
     return (
-        <section id="journey" className="relative w-full py-20 md:py-32 bg-background overflow-hidden">
-            <div className="absolute inset-0 z-0 opacity-80">
-              <JourneyPathBackground className="w-full h-full object-cover"/>
-            </div>
+        <section
+            id="journey"
+            className="relative w-full py-20 md:py-32 bg-cover bg-center"
+            style={{ backgroundImage: "url(/samurai0sunset.jpg)" }}
+        >
+            <div className="absolute inset-0 bg-black/60 z-0" />
+
             <div className="container mx-auto px-4 md:px-6 relative z-10">
-                <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16 md:mb-24">
-                     <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm text-secondary-foreground">My Journey</div>
-                     <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Education & Milestones</h2>
-                     <p className="max-w-[900px] text-foreground/80 md:text-xl/relaxed">
-                        A visual timeline of my academic growth and achievements, climbing towards new heights.
-                     </p>
+                <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
+                    <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm text-secondary-foreground">My Journey</div>
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline text-white drop-shadow-md">Education & Milestones</h2>
+                    <p className="max-w-[900px] text-white/80 md:text-xl/relaxed">
+                       A timeline of my academic growth. Hover over the blossoms on desktop to see the details.
+                    </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-3 gap-8 items-center justify-items-center min-h-[500px]">
-                    {journeyData.map((item, index) => (
-                        <div key={index} className={`w-full max-w-sm animate-fade-in-up ${item.gridPosition}`} style={{animationDelay: `${index * 0.2}s`}}>
-                            <Card className="flex items-start p-6 bg-card/70 backdrop-blur-sm border-primary/30 shadow-lg hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-2 transition-all duration-300">
-                                <div className="mr-4 pt-1">{item.icon}</div>
-                                <div className="flex-1">
-                                    <h3 className="text-lg font-headline font-bold">{item.title}</h3>
-                                    <p className="text-sm text-muted-foreground font-sans">{item.institution} &bull; {item.period}</p>
-                                    <p className="mt-2 text-sm text-foreground/90 font-sans">{item.description}</p>
+
+                {/* Desktop Layout */}
+                <div className="hidden md:grid md:grid-cols-2 gap-x-16 items-start mt-12">
+                    {/* Left side: Timeline controls */}
+                    <div className="col-span-1 relative">
+                        <div className="absolute top-0 h-full w-0.5 bg-primary/30 left-6"></div>
+                        <div className="flex flex-col gap-y-24">
+                            {journeyData.map((item, index) => (
+                                <div
+                                    key={index}
+                                    className="relative flex items-center cursor-pointer"
+                                    onMouseEnter={() => setActiveIndex(index)}
+                                >
+                                    <div className="absolute top-1/2 -translate-y-1/2 left-6 -translate-x-1/2 z-20">
+                                        <div className={`flex items-center justify-center h-12 w-12 rounded-full bg-background border-2 transition-all duration-300 ${activeIndex === index ? 'border-primary scale-110' : 'border-primary/50'}`}>
+                                            <CherryBlossomIcon className={`h-8 w-8 transition-colors duration-300 ${activeIndex === index ? 'text-primary' : 'text-primary/60'}`} />
+                                        </div>
+                                    </div>
+                                    <div className="pl-20 py-4">
+                                        <p className={`text-lg font-headline transition-colors duration-300 ${activeIndex === index ? 'text-primary' : 'text-white/80'}`}>{item.title}</p>
+                                    </div>
                                 </div>
-                            </Card>
+                            ))}
                         </div>
-                    ))}
+                    </div>
+
+                    {/* Right side: Details pane */}
+                    <div className="col-span-1 relative min-h-[200px]">
+                        {journeyData.map((item, index) => (
+                             <div
+                                key={index}
+                                className={`absolute w-full transition-all duration-300 ease-in-out ${activeIndex === index ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}
+                            >
+                                <Card className="bg-card/80 backdrop-blur-sm border-primary/30 shadow-lg">
+                                    <CardContent className="p-6 flex items-start">
+                                        <div className="mr-4 pt-1">{item.icon}</div>
+                                        <div className="flex-1">
+                                            <h3 className="text-xl font-headline font-bold">{item.title}</h3>
+                                            <p className="text-sm text-muted-foreground font-sans">{item.institution} &bull; {item.period}</p>
+                                            <p className="mt-2 text-foreground/90 font-sans">{item.description}</p>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Mobile Layout */}
+                <div className="md:hidden mt-8 space-y-8">
+                   {journeyData.map((item, index) => (
+                        <Card key={index} className="bg-card/80 backdrop-blur-sm border-primary/30 shadow-lg">
+                           <CardContent className="p-4 flex items-start">
+                               <div className="mr-3 pt-1">{item.icon}</div>
+                               <div className="flex-1">
+                                   <h3 className="text-md font-headline font-bold">{item.title}</h3>
+                                   <p className="text-xs text-muted-foreground font-sans">{item.institution} &bull; {item.period}</p>
+                                   <p className="mt-1 text-foreground/90 font-sans">{item.description}</p>
+                               </div>
+                           </CardContent>
+                       </Card>
+                   ))}
                 </div>
             </div>
         </section>
-    )
+    );
 }
