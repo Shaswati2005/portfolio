@@ -2,12 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { CherryPetalIcon } from '@/components/icons/cherry-petal-icon';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 const PETAL_COUNT = 20;
 
 export default function FallingPetals() {
-  const isMobile = useIsMobile();
   const [petals, setPetals] = useState<any[]>([]);
   const [isClient, setIsClient] = useState(false);
 
@@ -17,8 +15,7 @@ export default function FallingPetals() {
 
 
   useEffect(() => {
-    // Only generate petals on the client and on non-mobile devices
-    if (isClient && isMobile === false) {
+    if (isClient) {
       const generatedPetals = Array.from({ length: PETAL_COUNT }).map((_, i) => ({
         id: i,
         style: {
@@ -35,10 +32,9 @@ export default function FallingPetals() {
     } else {
       setPetals([]);
     }
-  }, [isClient, isMobile]);
+  }, [isClient]);
 
-  // Don't render anything on the server, or on mobile, to prevent hydration errors.
-  if (!isClient || isMobile === true || typeof isMobile === 'undefined') {
+  if (!isClient) {
     return null;
   }
 
