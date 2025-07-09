@@ -92,7 +92,7 @@ export default function HeroSection() {
       <div className="relative z-30 container flex flex-col items-center justify-center px-4">
         <div className="flex flex-col items-center gap-6">
           <h1 className="text-4xl font-headline font-bold tracking-tighter sm:text-5xl md:text-6xl text-white drop-shadow-lg">
-            {"Elegant Designs, Powerful Code".split(" ").map((word, index) => (
+            {"Full-Stack Solutions, Beautifully Engineered.".split(" ").map((word, index) => (
               <span
                 key={index}
                 className="inline-block animate-fade-in-up opacity-0"
@@ -103,10 +103,10 @@ export default function HeroSection() {
             ))}
           </h1>
           <p
-            className="max-w-[600px] text-white/90 md:text-xl drop-shadow-md animate-fade-in-up opacity-0"
+            className="max-w-[700px] text-white/90 md:text-xl drop-shadow-md animate-fade-in-up opacity-0"
             style={{ animationDelay: '0.7s', animationFillMode: 'forwards' }}
           >
-            Welcome to my digital garden. I'm a passionate developer and designer, creating beautiful and functional web experiences. Explore my work and let's build something amazing together.
+            I architect and build complete web applications where powerful functionality meets elegant design. As a full-stack developer, I'm passionate about creating robust, scalable solutions that provide users with a seamless and intuitive experience. Explore my work to see this philosophy in action.
           </p>
         </div>
         <div
