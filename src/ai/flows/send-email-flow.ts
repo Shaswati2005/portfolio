@@ -29,6 +29,16 @@ const sendEmailFlow = ai.defineFlow(
         };
     }
 
+    // Check for placeholder values
+    if (EMAIL_SERVER_HOST === 'your_smtp_host' || EMAIL_SERVER_USER === 'your_email_username' || EMAIL_SERVER_PASSWORD === 'your_email_password') {
+        const errorMessage = "The email server is not configured. Please check your .env file and replace placeholder values with your actual SMTP credentials.";
+        console.error(errorMessage);
+        return {
+            success: false,
+            message: "It looks like the email server isn't set up yet. Please provide valid SMTP credentials in the environment variables.",
+        };
+    }
+
     const transporter = nodemailer.createTransport({
         host: EMAIL_SERVER_HOST,
         port: parseInt(EMAIL_SERVER_PORT, 10),
