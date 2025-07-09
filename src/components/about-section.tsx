@@ -12,7 +12,7 @@ export default function AboutSection() {
               <div className="absolute -inset-4 border-primary/10 rounded-full animate-pulse-slow" style={{ animationDelay: '1s' }}/>
               <Image
                 src="https://placehold.co/600x600.png"
-                alt="A portrait of Sakura"
+                alt="A portrait of Shaswati Mishra"
                 data-ai-hint="portrait person"
                 width={600}
                 height={600}
@@ -22,7 +22,7 @@ export default function AboutSection() {
           </div>
           <div className="md:col-span-3 space-y-6 relative">
              {/* Tree Decoration */}
-            <div className="pointer-events-none absolute -right-40 -top-24 w-[600px] h-auto opacity-40 hidden lg:block z-0">
+            <div className="pointer-events-none absolute -right-40 -top-32 w-[600px] h-auto opacity-40 hidden lg:block z-0">
                <div className="absolute top-1/4 -inset-x-20 h-1/2 bg-primary/20 blur-[100px] animate-pulse-slow" style={{animationDuration: '8s'}} />
                <div className="animate-sway" style={{ transformOrigin: '90% 90%', animationDuration: '30s', animationDelay: '-5s' }}>
                   <Image
@@ -46,7 +46,7 @@ export default function AboutSection() {
                <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm text-secondary-foreground">About Me</div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">A Developer with a Passion for Artistry</h2>
               <p className="text-foreground/80 md:text-lg/relaxed">
-                Hello! I'm Sakura, a full-stack developer who finds joy in the intersection of elegant code and beautiful design. My journey into technology was driven by a desire to create things that are not only functional and efficient but also delightful to use. I believe that the best digital experiences are born from a deep understanding of both human-centered design and robust engineering.
+                Hello! I'm Shaswati Mishra, a full-stack developer who finds joy in the intersection of elegant code and beautiful design. My journey into technology was driven by a desire to create things that are not only functional and efficient but also delightful to use. I believe that the best digital experiences are born from a deep understanding of both human-centered design and robust engineering.
               </p>
               <p className="text-foreground/80 md:text-lg/relaxed">
                 From crafting pixel-perfect user interfaces with React and Next.js to building scalable backend systems, I'm constantly learning and honing my skills. When I'm not coding, you can find me exploring new art styles, tending to my bonsai trees, or getting lost in a good book. This portfolio is a reflection of my philosophy: to build with precision, creativity, and a touch of serenity.

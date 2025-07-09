@@ -78,7 +78,7 @@ export default function ContactSection() {
                                         <FormItem>
                                             <FormLabel>Your Name</FormLabel>
                                             <FormControl>
-                                                <Input placeholder="Sakura" {...field} />
+                                                <Input placeholder="Shaswati Mishra" {...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -91,7 +91,7 @@ export default function ContactSection() {
                                         <FormItem>
                                             <FormLabel>Your Email</FormLabel>
                                             <FormControl>
-                                                <Input type="email" placeholder="sakura@example.com" {...field} />
+                                                <Input type="email" placeholder="shaswati@example.com" {...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>

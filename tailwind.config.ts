@@ -141,6 +141,11 @@ export default {
             '20%, 80%': { transform: 'scale(1)', opacity: '1' },
             '100%': { transform: 'scale(1.2)', opacity: '0' },
         },
+        'text-cycle': {
+          '0%, 40%': { transform: 'translateY(0)' },
+          '50%, 90%': { transform: 'translateY(-50%)' },
+          '100%': { transform: 'translateY(-100%)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -156,6 +161,7 @@ export default {
         'pulse-slow': 'pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'transition-fade': 'transition-fade 1s ease-in-out forwards',
         'transition-blossom': 'transition-blossom 1s ease-in-out forwards',
+        'text-cycle': 'text-cycle 10s ease-in-out infinite',
       },
     },
   },

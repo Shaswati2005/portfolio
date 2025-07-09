@@ -7,7 +7,7 @@ import { TransitionProvider } from '@/context/transition-context';
 import TransitionEffect from '@/components/transition-effect';
 
 export const metadata: Metadata = {
-  title: 'Sakura Portfolio',
+  title: 'Shaswati Mishra Portfolio',
   description: 'An elegant portfolio showcasing skills and projects.',
 };
 

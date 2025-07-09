@@ -36,7 +36,6 @@ export default function Header() {
       if (currentSection && currentSection.href !== currentActive) {
         currentActive = currentSection.href;
         setActiveLink(currentActive);
-        // Transition is no longer played on scroll
       }
     };
 
@@ -55,7 +54,7 @@ export default function Header() {
     
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []); // Removed playTransition from dependency array
+  }, []); 
 
 
   return (
@@ -63,7 +62,19 @@ export default function Header() {
       <div className="container flex h-16 items-center">
         <Link href="#home" onClick={playTransition} className="flex items-center gap-2 mr-6">
           <DetailedCherryBlossomIcon className="h-6 w-6 text-primary" />
-          <span className="font-bold font-headline">Sakura Portfolio</span>
+          <div className="h-6 overflow-hidden">
+            <div className="animate-text-cycle">
+              <div className="flex h-6 items-center">
+                <span className="font-bold font-headline">Sakura Portfolio</span>
+              </div>
+              <div className="flex h-6 items-center">
+                <span className="font-bold font-headline text-accent">Shaswati Mishra</span>
+              </div>
+              <div className="flex h-6 items-center">
+                <span className="font-bold font-headline">Sakura Portfolio</span>
+              </div>
+            </div>
+          </div>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           {navItems.map((link) => (
