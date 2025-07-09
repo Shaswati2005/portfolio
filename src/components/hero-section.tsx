@@ -68,7 +68,7 @@ export default function HeroSection() {
   return (
     <section id="home" className="relative w-full h-screen flex items-center justify-center text-center overflow-hidden">
       <Image
-        src="https://placehold.co/1920x1080.png"
+        src="/bg.jpg"
         alt="Lush cherry blossom grove with a traditional Japanese bridge at sunset"
         data-ai-hint="cherry blossom landscape"
         fill
