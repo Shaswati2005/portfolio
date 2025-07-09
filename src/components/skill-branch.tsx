@@ -10,7 +10,7 @@ export default function SkillBranch() {
                   alt="Cherry blossom branch"
                   width={500}
                   height={375}
-                  className="scale-x-[-1] rotate-[35deg]"
+                  className="transform  rotate-[-35deg] scale-130"
                 />
             </div>
         </div>

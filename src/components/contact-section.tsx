@@ -1,7 +1,6 @@
 'use client';
 
 import { Github, Linkedin, Mail, CodeXml, FileText } from 'lucide-react';
-import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { LeetCodeIcon } from './icons/leetcode-icon';
 
@@ -71,22 +70,6 @@ export default function ContactSection() {
               className="group rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
             >
               <Card className="relative h-full bg-card/70 hover:bg-card border-2 border-transparent hover:border-primary/70 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 flex flex-col text-center">
-                <Image
-                  src="/border.png"
-                  alt="Card corner decoration"
-                  width={128}
-                  height={128}
-                  className="absolute -top-2 -right-0 w-28 h-28 pointer-events-none object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-                />
-
-                <Image
-                  src="/border.png"
-                  alt="Card corner decoration"
-                  width={128}
-                  height={128}
-                  className="absolute -bottom-2 -left-0 transform scale-x-[-1] scale-y-[-1] w-28 h-28 pointer-events-none object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-                />
-                
                 <CardContent className="relative z-10 p-8 flex flex-col items-center justify-center gap-4 flex-1">
                     <div className="flex items-center justify-center h-16 w-16 mb-2 bg-card/80 backdrop-blur-sm rounded-full shadow-lg transition-transform duration-300 group-hover:scale-110">
                       {link.icon}
