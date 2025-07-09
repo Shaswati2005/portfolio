@@ -21,13 +21,13 @@ export default function AboutSection() {
             </div>
           </div>
           <div className="md:col-span-3 space-y-6 relative">
-             {/* Branch Decoration */}
+             {/* Tree Decoration */}
             <div className="pointer-events-none absolute -right-32 -top-24 w-[500px] h-auto opacity-30 hidden lg:block z-0">
                <div className="absolute inset-0 bg-primary/20 rounded-full blur-[100px]" />
                <div className="animate-sway" style={{ transformOrigin: '10% 90%', animationDuration: '30s', animationDelay: '-5s' }}>
                   <Image
-                    src="/branch.png"
-                    alt="Cherry blossom branch"
+                    src="/tree.png"
+                    alt="Cherry blossom tree"
                     width={500}
                     height={375}
                     className="transform rotate-[20deg] scale-x-[-1] scale-125"
