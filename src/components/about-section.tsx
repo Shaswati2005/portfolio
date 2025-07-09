@@ -11,7 +11,7 @@ export default function AboutSection() {
               <div className="absolute -inset-2 border-2 border-primary/20 rounded-full animate-pulse-slow" style={{ animationDelay: '0.5s' }} />
               <div className="absolute -inset-4 border-primary/10 rounded-full animate-pulse-slow" style={{ animationDelay: '1s' }}/>
               <Image
-                src="https://placehold.co/600x600.png"
+                src="/shaswati.jpg"
                 alt="A portrait of Shaswati Mishra"
                 data-ai-hint="portrait person"
                 width={600}
@@ -44,17 +44,17 @@ export default function AboutSection() {
 
             <div className="space-y-4 relative z-10">
                <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm text-secondary-foreground">About Me</div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">A Developer with a Passion for Artistry</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">A Full-Stack Developer Focused on Building Solutions</h2>
               <p className="text-foreground/80 md:text-lg/relaxed">
-                Hello! I'm Shaswati Mishra, a full-stack developer who finds joy in the intersection of elegant code and beautiful design. My journey into technology was driven by a desire to create things that are not only functional and efficient but also delightful to use. I believe that the best digital experiences are born from a deep understanding of both human-centered design and robust engineering.
+                Hello! I'm Shaswati Mishra, a passionate full-stack developer dedicated to building robust and scalable web applications from the ground up. My journey into technology is fueled by a love for problem-solving and a drive to create efficient, high-performance digital solutions. I thrive on the challenge of architecting and implementing both client-side and server-side logic to power modern web experiences.
               </p>
               <p className="text-foreground/80 md:text-lg/relaxed">
-                From crafting pixel-perfect user interfaces with React and Next.js to building scalable backend systems, I'm constantly learning and honing my skills. When I'm not coding, you can find me exploring new art styles, tending to my bonsai trees, or getting lost in a good book. This portfolio is a reflection of my philosophy: to build with precision, creativity, and a touch of serenity.
+                With a strong foundation in technologies like React and Next.js for the frontend, and Node.js with various databases for the backend, I'm committed to writing clean, maintainable code and continuously expanding my technical skills. When I'm not coding, I enjoy watching historical dramas and reading novels, which I find sharpens my analytical skills for tackling complex problems. This portfolio showcases my dedication to building with precision and creating impactful technology.
               </p>
             </div>
             <div className="flex items-center gap-4 pt-4 relative z-10">
               <DetailedCherryBlossomIcon className="h-8 w-8 text-primary" />
-              <p className="font-headline text-lg text-primary">Building beautiful things, one line of code at a time.</p>
+              <p className="font-headline text-lg text-primary">Architecting end-to-end solutions with clean code.</p>
             </div>
           </div>
         </div>
