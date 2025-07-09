@@ -37,9 +37,9 @@ export default function JourneySection() {
         <section
             id="journey"
             className="relative w-full py-20 md:py-32 bg-cover bg-center"
-            style={{ backgroundImage: "url(/samurai0sunset.jpg)" }}
+            style={{ backgroundImage: "url(/samurai-sunset.jpg)" }}
         >
-            <div className="absolute inset-0 bg-black/60 z-0" />
+            <div className="absolute inset-0 bg-black/80 z-0" />
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
