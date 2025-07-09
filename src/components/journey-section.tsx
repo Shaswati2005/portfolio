@@ -24,23 +24,44 @@ const JourneyPathBackground = (props: SVGProps<SVGSVGElement>) => (
         <path d="M -50 800 C 300 800, 600 500, 1250 350 V 800 Z" fill="hsl(var(--card) / 0.4)" />
         <path d="M -50 800 C 200 800, 500 600, 1250 450 V 800 Z" fill="hsl(var(--card) / 0.5)" />
 
-        <g transform="translate(950, 180) scale(1.2)">
-            <path d="M 0 180 V 50 C -10 30, -30 40, -50 20" stroke="#382323" strokeWidth="10" fill="none" strokeLinecap="round"/>
-            <path d="M 0 120 C 20 110, 40 100, 60 70 C 80 40, 100 50, 120 40" stroke="#382323" strokeWidth="8" fill="none" strokeLinecap="round"/>
-            <path d="M -5 70 C -15 65, -30 50, -20 30" stroke="#382323" strokeWidth="6" fill="none" strokeLinecap="round"/>
+        <g transform="translate(950, 150) scale(1.3)">
+            {/* Trunk and main branches */}
+            <path d="M 0 200 C -5 150, -10 140, -20 100" stroke="#4a2c2a" strokeWidth="14" fill="none" strokeLinecap="round"/>
+            <path d="M -20 100 C -30 70, -60 80, -80 50" stroke="#4a2c2a" strokeWidth="10" fill="none" strokeLinecap="round"/>
+            <path d="M -15 120 C 20 110, 40 90, 60 50" stroke="#4a2c2a" strokeWidth="9" fill="none" strokeLinecap="round"/>
 
-            <g opacity="0.9">
-              <circle cx="125" cy="35" r="20" fill="hsl(var(--primary))" />
-              <circle cx="110" cy="50" r="25" fill="hsl(var(--accent))" />
-              <circle cx="135" cy="55" r="18" fill="hsl(var(--primary))" />
+            {/* Finer branches */}
+            <path d="M -78 52 C -100 30, -120 40, -130 20" stroke="#4a2c2a" strokeWidth="6" fill="none" strokeLinecap="round"/>
+            <path d="M -75 60 C -60 40, -80 30, -90 20" stroke="#4a2c2a" strokeWidth="4" fill="none" strokeLinecap="round"/>
+            <path d="M 58 52 C 80 30, 110 40, 120 20" stroke="#4a2c2a" strokeWidth="5" fill="none" strokeLinecap="round"/>
+            <path d="M 55 60 C 40 40, 50 30, 70 20" stroke="#4a2c2a" strokeWidth="3" fill="none" strokeLinecap="round"/>
+
+            {/* Blossom Clusters */}
+            <g opacity="1">
+              {/* Top-right clusters */}
+              <circle cx="125" cy="15" r="15" fill="hsl(var(--primary))" />
+              <circle cx="110" cy="30" r="18" fill="hsl(var(--accent))" />
+              <circle cx="130" cy="35" r="12" fill="hsl(var(--primary))" />
+
+              {/* Mid-right clusters */}
+              <circle cx="75" cy="15" r="12" fill="hsl(var(--accent))" />
+              <circle cx="90" cy="25" r="16" fill="hsl(var(--primary))" />
+              <circle cx="70" cy="35" r="14" fill="hsl(var(--accent))" />
+
+              {/* Top-left clusters */}
+              <circle cx="-135" cy="15" r="16" fill="hsl(var(--primary))" />
+              <circle cx="-120" cy="30" r="20" fill="hsl(var(--accent))" />
+              <circle cx="-140" cy="35" r="14" fill="hsl(var(--primary))" />
+
+              {/* Mid-left clusters */}
+              <circle cx="-95" cy="15" r="14" fill="hsl(var(--accent))" />
+              <circle cx="-110" cy="25" r="18" fill="hsl(var(--primary))" />
+              <circle cx="-85" cy="35" r="15" fill="hsl(var(--accent))" />
               
-              <circle cx="50" cy="65" r="22" fill="hsl(var(--accent))" />
-              <circle cx="70" cy="75" r="28" fill="hsl(var(--primary))" />
-              <circle cx="65" cy="55" r="20" fill="hsl(var(--accent))" />
-
-              <circle cx="-55" cy="15" r="18" fill="hsl(var(--primary))" />
-              <circle cx="-40" cy="30" r="25" fill="hsl(var(--accent))" />
-              <circle cx="-60" cy="35" r="15" fill="hsl(var(--primary))" />
+              {/* Lower-center clusters */}
+              <circle cx="-30" cy="80" r="18" fill="hsl(var(--primary))" />
+              <circle cx="-45" cy="95" r="15" fill="hsl(var(--accent))" />
+              <circle cx="-15" cy="90" r="16" fill="hsl(var(--primary))" />
             </g>
         </g>
     </svg>
