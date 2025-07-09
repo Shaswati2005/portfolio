@@ -66,44 +66,48 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="home" className="relative container flex flex-col items-center justify-center text-center py-20 md:py-32 overflow-hidden">
+    <section id="home" className="relative w-full h-screen flex items-center justify-center text-center overflow-hidden">
+      <Image
+        src="https://placehold.co/1920x1080.png"
+        alt="Lush cherry blossom grove with a traditional Japanese bridge at sunset"
+        data-ai-hint="cherry blossom landscape"
+        fill
+        className="object-cover"
+        priority
+      />
+      <div className="absolute inset-0 bg-black/40 z-10" />
+      
       <CherryBranch />
-      <div className="flex justify-center animate-fade-in mb-8" style={{ animationDelay: '0.2s' }}>
-        <Image
-          src="https://placehold.co/500x500.png"
-          alt="Abstract illustration of cherry blossoms"
-          data-ai-hint="cherry blossoms abstract"
-          width={500}
-          height={500}
-          className="rounded-full aspect-square object-cover border-8 border-primary/50 shadow-lg"
-        />
-      </div>
-      <div className="flex flex-col items-center gap-6 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-        <h1 className="text-4xl font-headline font-bold tracking-tighter sm:text-5xl md:text-6xl">
-          Elegant Designs, Powerful Code
-        </h1>
-        <p className="max-w-[600px] text-foreground/80 md:text-xl">
-          Welcome to my digital garden. I'm a passionate developer and designer, creating beautiful and functional web experiences. Explore my work and let's build something amazing together.
-        </p>
-      </div>
-      <div className="flex flex-col sm:flex-row gap-4 mt-8 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-        <AnimatedButton
-          isAnimating={workButtonAnimating}
-          onAnimate={() => handleAnimate(setWorkButtonAnimating)}
-          asChild
-          size="lg"
-        >
-          <Link href="#projects">View My Work</Link>
-        </AnimatedButton>
-        <AnimatedButton
-          isAnimating={contactButtonAnimating}
-          onAnimate={() => handleAnimate(setContactButtonAnimating)}
-          asChild
-          variant="outline"
-          size="lg"
-        >
-          <Link href="#contact">Get In Touch</Link>
-        </AnimatedButton>
+
+      <div className="relative z-30 container flex flex-col items-center justify-center px-4">
+        <div className="flex flex-col items-center gap-6 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+          <h1 className="text-4xl font-headline font-bold tracking-tighter sm:text-5xl md:text-6xl text-white drop-shadow-lg">
+            Elegant Designs, Powerful Code
+          </h1>
+          <p className="max-w-[600px] text-white/90 md:text-xl drop-shadow-md">
+            Welcome to my digital garden. I'm a passionate developer and designer, creating beautiful and functional web experiences. Explore my work and let's build something amazing together.
+          </p>
+        </div>
+        <div className="flex flex-col sm:flex-row gap-4 mt-8 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+          <AnimatedButton
+            isAnimating={workButtonAnimating}
+            onAnimate={() => handleAnimate(setWorkButtonAnimating)}
+            asChild
+            size="lg"
+          >
+            <Link href="#projects">View My Work</Link>
+          </AnimatedButton>
+          <AnimatedButton
+            isAnimating={contactButtonAnimating}
+            onAnimate={() => handleAnimate(setContactButtonAnimating)}
+            asChild
+            variant="outline"
+            size="lg"
+            className="border-white/50 text-white hover:bg-white/10 hover:text-white"
+          >
+            <Link href="#contact">Get In Touch</Link>
+          </AnimatedButton>
+        </div>
       </div>
     </section>
   );
