@@ -77,15 +77,29 @@ export default function HeroSection() {
       
 
       <div className="relative z-30 container flex flex-col items-center justify-center px-4">
-        <div className="flex flex-col items-center gap-6 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+        <div className="flex flex-col items-center gap-6">
           <h1 className="text-4xl font-headline font-bold tracking-tighter sm:text-5xl md:text-6xl text-white drop-shadow-lg">
-            Elegant Designs, Powerful Code
+            {"Elegant Designs, Powerful Code".split(" ").map((word, index) => (
+              <span
+                key={index}
+                className="inline-block animate-fade-in-up opacity-0"
+                style={{ animationDelay: `${0.2 + index * 0.1}s`, animationFillMode: 'forwards' }}
+              >
+                {word}{' '}
+              </span>
+            ))}
           </h1>
-          <p className="max-w-[600px] text-white/90 md:text-xl drop-shadow-md">
+          <p
+            className="max-w-[600px] text-white/90 md:text-xl drop-shadow-md animate-fade-in-up opacity-0"
+            style={{ animationDelay: '0.7s', animationFillMode: 'forwards' }}
+          >
             Welcome to my digital garden. I'm a passionate developer and designer, creating beautiful and functional web experiences. Explore my work and let's build something amazing together.
           </p>
         </div>
-        <div className="flex flex-col sm:flex-row gap-4 mt-8 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+        <div
+          className="flex flex-col sm:flex-row gap-4 mt-8 animate-fade-in-up opacity-0"
+          style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}
+        >
           <AnimatedButton
             isAnimating={workButtonAnimating}
             onAnimate={() => handleAnimate(setWorkButtonAnimating)}
