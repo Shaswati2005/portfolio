@@ -35,17 +35,22 @@ export default function ContactSection() {
       if (result.success) {
         toast({
           title: 'Message Sent!',
-          description: "Thanks for reaching out. I'll get back to you soon.",
+          description: result.message || "Thanks for reaching out. I'll get back to you soon.",
         });
         form.reset();
       } else {
-        throw new Error(result.message);
+        toast({
+          variant: 'destructive',
+          title: 'Failed to send message',
+          description: result.message || 'An unknown error occurred.',
+        });
       }
     } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'There was a problem sending your message. Please try again.';
       toast({
         variant: 'destructive',
         title: 'Uh oh! Something went wrong.',
-        description: 'There was a problem sending your message. Please try again.',
+        description: errorMessage,
       });
     } finally {
       setIsSubmitting(false);
