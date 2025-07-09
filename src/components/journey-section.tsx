@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { GraduationCap, School, BookOpen } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
-import { CherryBlossomIcon } from '@/components/icons/cherry-blossom-icon';
+import { DetailedCherryBlossomIcon } from './icons/detailed-cherry-blossom-icon';
 
 // Chronological journey data
 const journeyData = [
@@ -64,7 +64,7 @@ export default function JourneySection() {
                                 >
                                     <div className="absolute top-1/2 -translate-y-1/2 left-6 -translate-x-1/2 z-20">
                                         <div className={`flex items-center justify-center h-12 w-12 rounded-full bg-background border-2 transition-all duration-300 ${activeIndex === index ? 'border-primary scale-110' : 'border-primary/50'}`}>
-                                            <CherryBlossomIcon className={`h-8 w-8 transition-colors duration-300 ${activeIndex === index ? 'text-primary' : 'text-primary/60'}`} />
+                                            <DetailedCherryBlossomIcon className={`h-8 w-8 transition-colors duration-300 ${activeIndex === index ? 'text-primary' : 'text-primary/60'}`} />
                                         </div>
                                     </div>
                                     <div className="pl-20 py-4">
