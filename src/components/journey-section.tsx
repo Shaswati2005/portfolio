@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -26,7 +27,7 @@ const journeyData = [
     title: "Bachelor of Technology",
     institution: "University Name",
     period: "Enrolled",
-    description: "Currently pursuing a degree in Computer Science, focusing on Full-Stack Development and AI/ML.",
+    description: "Currently pursuing a degree in Electronics and Communication Engineering with a current CGPA of 9.0/10. My focus areas include Full-Stack Development and AI/ML.",
   }
 ];
 
