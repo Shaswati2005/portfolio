@@ -11,23 +11,23 @@ const journeyData = [
   {
     icon: <BookOpen className="h-8 w-8 text-primary" />,
     title: "Class X Certificate",
-    institution: "School Name",
-    period: "Completed",
-    description: "Excelled in foundational subjects, achieving a score of 96.8%.",
+    institution: "Jawahar Navodaya Vidyalaya, Sonepur ",
+    period: "2020",
+    description: "Excelled in foundational subjects, achieving a score of 98.2%.",
   },
   {
     icon: <School className="h-8 w-8 text-primary" />,
     title: "Class XII Certificate",
-    institution: "High School Name",
-    period: "Completed",
-    description: "Focused on science and mathematics, scoring 94% and building a strong foundation for engineering.",
+    institution: "Jawahar Navodaya Vidyalaya, Sonepur",
+    period: "2022",
+    description: "Focused on science and mathematics, scoring 94.33% and building a strong foundation for engineering.",
   },
   {
     icon: <GraduationCap className="h-8 w-8 text-primary" />,
     title: "Bachelor of Technology",
-    institution: "University Name",
-    period: "Enrolled",
-    description: "Currently pursuing a degree in Electronics and Communication Engineering with a current CGPA of 9.0/10. My focus areas include Full-Stack Development and AI/ML.",
+    institution: "National Institute of Technology, Rourkela",
+    period: "2023-2027",
+    description: "Currently pursuing a degree in Electronics and Communication Engineering with a current CGPA of 8.49. My focus areas include Full-Stack Development and Competitive Programming .",
   }
 ];
 
