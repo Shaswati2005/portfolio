@@ -11,8 +11,8 @@ export default function Header() {
     { href: '#projects', label: 'Projects' },
     { href: '#skills', label: 'Skills' },
     { href: '#journey', label: 'Journey' },
-    { href: '#contact', label: 'Contact' },
     { href: '#find-me-online', label: 'Online' },
+    { href: '#contact', label: 'Contact' },
   ];
 
   // All sections to be tracked by the scroll spy
