@@ -22,7 +22,7 @@ export default function AboutSection() {
           </div>
           <div className="md:col-span-3 space-y-6 relative">
              {/* Tree Decoration */}
-            <div className="pointer-events-none absolute -right-40 -top-32 w-[600px] h-auto opacity-40 hidden lg:block z-0">
+            <div className="pointer-events-none absolute -right-40 -top-24 w-[600px] h-auto opacity-40 hidden lg:block z-0">
                <div className="absolute top-1/4 -inset-x-20 h-1/2 bg-primary/20 blur-[100px] animate-pulse-slow" style={{animationDuration: '8s'}} />
                <div className="animate-sway" style={{ transformOrigin: '90% 90%', animationDuration: '30s', animationDelay: '-5s' }}>
                   <Image
@@ -30,7 +30,7 @@ export default function AboutSection() {
                     alt="Cherry blossom tree"
                     width={600}
                     height={450}
-                    className="transform rotate-[-20deg] scale-150"
+                    className="transform rotate-[20deg] scale-150"
                   />
                 </div>
                 {/* The hill below the tree */}
