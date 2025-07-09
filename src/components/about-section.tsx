@@ -22,15 +22,15 @@ export default function AboutSection() {
           </div>
           <div className="md:col-span-3 space-y-6 relative">
              {/* Tree Decoration */}
-            <div className="pointer-events-none absolute -right-32 -top-24 w-[500px] h-auto opacity-30 hidden lg:block z-0">
-               <div className="absolute inset-0 bg-primary/20 rounded-full blur-[100px]" />
+            <div className="pointer-events-none absolute -right-40 -top-32 w-[600px] h-auto opacity-30 hidden lg:block z-0">
+               <div className="absolute inset-0 bg-primary/25 rounded-full blur-[120px]" />
                <div className="animate-sway" style={{ transformOrigin: '10% 90%', animationDuration: '30s', animationDelay: '-5s' }}>
                   <Image
                     src="/tree.png"
                     alt="Cherry blossom tree"
-                    width={500}
-                    height={375}
-                    className="transform rotate-[20deg] scale-x-[-1] scale-125"
+                    width={600}
+                    height={450}
+                    className="transform rotate-[-20deg] scale-150"
                   />
               </div>
             </div>
