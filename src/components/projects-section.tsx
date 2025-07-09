@@ -4,7 +4,17 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink } from "lucide-react";
 
-const projects = [
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  aiHint: string;
+  githubUrl: string;
+  deployedUrl: string;
+}
+
+const projects: Project[] = [
   {
     title: "UNBOT",
     description: "An AI-powered CV builder that generates tailored resumes with real-time editing, role-specific skill.",

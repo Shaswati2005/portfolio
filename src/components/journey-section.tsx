@@ -1,13 +1,21 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { GraduationCap, School, BookOpen } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { DetailedCherryBlossomIcon } from './icons/detailed-cherry-blossom-icon';
 
+interface JourneyItem {
+  icon: ReactNode;
+  title: string;
+  institution: string;
+  period: string;
+  description: string;
+}
+
 // Chronological journey data
-const journeyData = [
+const journeyData: JourneyItem[] = [
   {
     icon: <BookOpen className="h-8 w-8 text-primary" />,
     title: "Class X Certificate",

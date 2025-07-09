@@ -1,16 +1,23 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, type CSSProperties } from 'react';
 import { CherryPetalIcon } from '@/components/icons/cherry-petal-icon';
 import { useIsMobile } from '@/hooks/use-mobile';
 
+interface Petal {
+  id: number;
+  x: number;
+  y: number;
+  style: CSSProperties;
+}
+
 export default function CursorPetalEffect() {
-  const [petals, setPetals] = useState<any[]>([]);
+  const [petals, setPetals] = useState<Petal[]>([]);
   const isMobile = useIsMobile();
   
   const addPetal = useCallback((x: number, y: number) => {
     const id = new Date().getTime() + Math.random();
-    const newPetal = {
+    const newPetal: Petal = {
       id,
       x,
       y,

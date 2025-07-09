@@ -3,8 +3,17 @@
 import { Github, Linkedin, CodeXml, FileText } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { LeetCodeIcon } from './icons/leetcode-icon';
+import type { ReactNode } from 'react';
 
-const socialLinks = [
+interface SocialLink {
+  icon: ReactNode;
+  name: string;
+  handle: string;
+  href: string;
+  cta: string;
+}
+
+const socialLinks: SocialLink[] = [
   {
     icon: <Github className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />,
     name: 'GitHub',

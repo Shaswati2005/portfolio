@@ -9,7 +9,12 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/s
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 
-const navItems = [
+interface NavItem {
+  href: string;
+  label: string;
+}
+
+const navItems: NavItem[] = [
   { href: '#about', label: 'About' },
   { href: '#projects', label: 'Projects' },
   { href: '#skills', label: 'Skills' },
@@ -18,7 +23,7 @@ const navItems = [
   { href: '#contact', label: 'Contact' },
 ];
 
-const trackedSections = [{ href: '#home', label: 'Home' }, ...navItems];
+const trackedSections: NavItem[] = [{ href: '#home', label: 'Home' }, ...navItems];
 
 export default function Header() {
   const [activeLink, setActiveLink] = useState('#home');

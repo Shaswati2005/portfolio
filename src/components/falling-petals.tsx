@@ -1,12 +1,18 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type CSSProperties } from 'react';
 import { CherryPetalIcon } from '@/components/icons/cherry-petal-icon';
 
 const PETAL_COUNT = 20;
 
+interface FallingPetal {
+  id: number;
+  style: CSSProperties;
+  size: number;
+}
+
 export default function FallingPetals() {
-  const [petals, setPetals] = useState<any[]>([]);
+  const [petals, setPetals] = useState<FallingPetal[]>([]);
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -16,7 +22,7 @@ export default function FallingPetals() {
 
   useEffect(() => {
     if (isClient) {
-      const generatedPetals = Array.from({ length: PETAL_COUNT }).map((_, i) => ({
+      const generatedPetals: FallingPetal[] = Array.from({ length: PETAL_COUNT }).map((_, i) => ({
         id: i,
         style: {
           '--petal-start-x': `${Math.random() * 100}vw`,
