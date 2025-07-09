@@ -101,7 +101,7 @@ export default function ProjectsSection() {
                           GitHub
                       </a>
                   </Button>
-                  {project.deployedUrl && project.deployedUrl !== '#' && (
+                  {project.deployedUrl && (
                     <Button asChild variant="outline" size="sm">
                         <a href={project.deployedUrl} target="_blank" rel="noreferrer">
                             <ExternalLink className="mr-2 h-4 w-4"/>
