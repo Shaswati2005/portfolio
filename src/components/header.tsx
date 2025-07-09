@@ -22,8 +22,6 @@ export default function Header() {
   const { playTransition } = useTransition();
 
   useEffect(() => {
-    // A ref to hold the active link, to compare against in the scroll handler
-    // This prevents the scroll handler from re-triggering transitions unnecessarily
     let currentActive = '#home';
     
     const handleScroll = () => {
@@ -36,10 +34,9 @@ export default function Header() {
         });
 
       if (currentSection && currentSection.href !== currentActive) {
-        // A new section has become active
         currentActive = currentSection.href;
         setActiveLink(currentActive);
-        playTransition();
+        // Transition is no longer played on scroll
       }
     };
 
@@ -58,13 +55,13 @@ export default function Header() {
     
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [playTransition]); // Effect depends on playTransition
+  }, []); // Removed playTransition from dependency array
 
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/10 backdrop-blur-xl supports-[backdrop-filter]:bg-background/5">
       <div className="container flex h-16 items-center">
-        <Link href="#home" className="flex items-center gap-2 mr-6">
+        <Link href="#home" onClick={playTransition} className="flex items-center gap-2 mr-6">
           <DetailedCherryBlossomIcon className="h-6 w-6 text-primary" />
           <span className="font-bold font-headline">Sakura Portfolio</span>
         </Link>
@@ -73,6 +70,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
+              onClick={playTransition}
               className={cn(
                 'flex items-center gap-1 py-2 transition-colors hover:text-foreground/80',
                 activeLink === link.href
