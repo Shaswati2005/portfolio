@@ -62,18 +62,21 @@ export default function Header() {
       <div className="container flex h-16 items-center">
         <Link href="#home" onClick={playTransition} className="flex items-center gap-2 mr-6">
           <DetailedCherryBlossomIcon className="h-6 w-6 text-primary" />
-          <div className="h-6 overflow-hidden">
-            <div className="animate-text-cycle">
-              <div className="flex h-6 items-center">
-                <span className="font-bold font-headline">Sakura Portfolio</span>
-              </div>
-              <div className="flex h-6 items-center">
-                <span className="font-bold font-headline text-accent">Shaswati Mishra</span>
-              </div>
-              <div className="flex h-6 items-center">
-                <span className="font-bold font-headline">Sakura Portfolio</span>
+          <div className="font-bold font-headline flex items-center">
+            <div className="h-6 overflow-hidden">
+              <div className="animate-text-cycle">
+                <div className="flex h-6 items-center">
+                  <span>Sakura</span>
+                </div>
+                <div className="flex h-6 items-center">
+                  <span className="text-accent">Shaswati</span>
+                </div>
+                <div className="flex h-6 items-center">
+                  <span>Sakura</span>
+                </div>
               </div>
             </div>
+            <span>&nbsp;Portfolio</span>
           </div>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
