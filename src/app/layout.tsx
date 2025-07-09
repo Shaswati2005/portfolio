@@ -2,6 +2,7 @@ import type {Metadata} from 'next';
 import { Toaster } from "@/components/ui/toaster";
 import './globals.css';
 import CursorPetalEffect from '@/components/cursor-petal-effect';
+import FallingPetals from '@/components/falling-petals';
 
 export const metadata: Metadata = {
   title: 'Sakura Portfolio',
@@ -22,6 +23,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         <CursorPetalEffect />
+        <FallingPetals />
         {children}
         <Toaster />
       </body>

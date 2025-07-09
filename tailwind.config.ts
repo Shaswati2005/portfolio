@@ -122,6 +122,10 @@ export default {
         'cursor-petal': {
             '0%': { transform: 'translate(-50%, -50%) rotate(0deg) scale(1)', opacity: '1' },
             '100%': { transform: 'translate(calc(var(--petal-final-x) - 50%), calc(var(--petal-final-y) - 50%)) rotate(var(--petal-final-rotation)) scale(0.5)', opacity: '0' },
+        },
+        'falling-petal': {
+            '0%': { transform: 'translate(var(--petal-start-x), -10vh) rotate(0deg)', opacity: '1' },
+            '100%': { transform: 'translate(calc(var(--petal-start-x) + var(--petal-sway-x)), 110vh) rotate(var(--petal-final-rotation))', opacity: '0.2' },
         }
       },
       animation: {
@@ -134,6 +138,7 @@ export default {
         'petal-toss': 'petal-toss 1s ease-out forwards',
         'button-press': 'button-press 0.3s ease-in-out',
         'cursor-petal': 'cursor-petal var(--petal-duration, 1.5s) ease-out forwards',
+        'falling-petal': 'falling-petal linear infinite',
       },
     },
   },
