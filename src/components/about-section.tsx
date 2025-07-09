@@ -30,7 +30,7 @@ export default function AboutSection() {
                     alt="Cherry blossom tree"
                     width={600}
                     height={450}
-                    className="transform rotate-[20deg] scale-150"
+                    className="transform rotate-[-20deg] scale-150"
                   />
                 </div>
                 {/* The hill below the tree */}
