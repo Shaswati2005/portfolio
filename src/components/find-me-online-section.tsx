@@ -6,35 +6,35 @@ import { LeetCodeIcon } from './icons/leetcode-icon';
 
 const socialLinks = [
   {
-    icon: <Github className="h-8 w-8 text-primary" />,
+    icon: <Github className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />,
     name: 'GitHub',
     handle: '@your-username',
     href: '#',
     cta: 'View on GitHub'
   },
   {
-    icon: <Linkedin className="h-8 w-8 text-primary" />,
+    icon: <Linkedin className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />,
     name: 'LinkedIn',
     handle: 'Your Name',
     href: '#',
     cta: 'Connect on LinkedIn'
   },
   {
-    icon: <CodeXml className="h-8 w-8 text-primary" />,
+    icon: <CodeXml className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />,
     name: 'Codeforces',
     handle: '@your-username',
     href: '#',
     cta: 'View Profile'
   },
   {
-    icon: <LeetCodeIcon className="h-8 w-8 text-primary" />,
+    icon: <LeetCodeIcon className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />,
     name: 'LeetCode',
     handle: '@your-username',
     href: '#',
     cta: 'View Profile'
   },
   {
-    icon: <FileText className="h-8 w-8 text-primary" />,
+    icon: <FileText className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />,
     name: 'Resume',
     handle: 'View my credentials',
     href: '#',
@@ -53,7 +53,7 @@ export default function FindMeOnlineSection() {
             I'm always open to connecting. Feel free to check out my profiles below.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 max-w-6xl mx-auto items-stretch">
           {socialLinks.map((link) => (
             <a
               key={link.name}
@@ -63,16 +63,16 @@ export default function FindMeOnlineSection() {
               className="group rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
             >
               <Card className="relative h-full bg-card/70 hover:bg-card border-2 border-transparent hover:border-primary/70 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 flex flex-col text-center">
-                <CardContent className="relative z-10 p-8 flex flex-col items-center justify-center gap-4 flex-1">
-                    <div className="flex items-center justify-center h-16 w-16 mb-2 bg-card/80 backdrop-blur-sm rounded-full shadow-lg transition-transform duration-300 group-hover:scale-110">
+                <CardContent className="relative z-10 p-6 sm:p-8 flex flex-col items-center justify-center gap-4 flex-1">
+                    <div className="flex items-center justify-center h-14 w-14 sm:h-16 sm:w-16 mb-2 bg-card/80 backdrop-blur-sm rounded-full shadow-lg transition-transform duration-300 group-hover:scale-110">
                       {link.icon}
                     </div>
   
                     <div className="text-center">
-                      <h3 className="text-2xl font-headline font-bold">{link.name}</h3>
-                      <p className="text-md text-muted-foreground font-sans truncate">{link.handle}</p>
+                      <h3 className="text-xl sm:text-2xl font-headline font-bold">{link.name}</h3>
+                      <p className="text-sm sm:text-md text-muted-foreground font-sans truncate">{link.handle}</p>
                     </div>
-                    <div className="mt-auto pt-4 text-sm font-medium text-primary group-hover:underline underline-offset-4">
+                    <div className="mt-auto pt-2 sm:pt-4 text-sm font-medium text-primary group-hover:underline underline-offset-4">
                       {link.cta} &rarr;
                     </div>
                 </CardContent>

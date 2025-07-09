@@ -70,7 +70,7 @@ export default function ProjectsSection() {
             Here are a few projects I've worked on. Each one was a unique challenge and a joy to create.
           </p>
         </div>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <div key={project.title} className="group relative aspect-square w-full overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-primary/30 animate-fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>
               <Image
@@ -82,14 +82,14 @@ export default function ProjectsSection() {
                 className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              <h3 className="absolute bottom-5 left-5 text-2xl font-bold text-white font-headline transition-all duration-300 ease-in-out group-hover:bottom-[-50px] group-hover:opacity-0">
+              <h3 className="absolute bottom-4 left-4 text-xl font-bold text-white font-headline transition-all duration-300 ease-in-out group-hover:bottom-[-50px] group-hover:opacity-0 sm:bottom-5 sm:left-5 sm:text-2xl">
                 {project.title}
               </h3>
               
-              <div className="absolute inset-0 flex flex-col justify-center items-center p-6 text-center bg-card/95 opacity-0 backdrop-blur-sm transition-all duration-500 ease-in-out group-hover:opacity-100 border-2 border-transparent group-hover:border-primary/50 rounded-lg">
-                <CardTitle className="text-xl font-bold font-headline mb-2">{project.title}</CardTitle>
-                <CardDescription className="mb-4 text-foreground/80">{project.description}</CardDescription>
-                <div className="flex flex-wrap justify-center gap-2 mb-6">
+              <div className="absolute inset-0 flex flex-col justify-center items-center p-4 sm:p-6 text-center bg-card/95 opacity-0 backdrop-blur-sm transition-all duration-500 ease-in-out group-hover:opacity-100 border-2 border-transparent group-hover:border-primary/50 rounded-lg">
+                <CardTitle className="text-lg sm:text-xl font-bold font-headline mb-2">{project.title}</CardTitle>
+                <CardDescription className="mb-4 text-foreground/80 text-sm sm:text-base">{project.description}</CardDescription>
+                <div className="flex flex-wrap justify-center gap-2 mb-4 sm:mb-6">
                   {project.tags.map(tag => (
                     <Badge key={tag} variant="secondary">{tag}</Badge>
                   ))}
