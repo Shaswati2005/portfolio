@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Button, type ButtonProps } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
-import CherryBranch from '@/components/cherry-branch';
 import { CherryPetalIcon } from '@/components/icons/cherry-petal-icon';
 
 interface AnimatedButtonProps extends ButtonProps {
@@ -77,7 +76,6 @@ export default function HeroSection() {
       />
       <div className="absolute inset-0 bg-black/60 z-10" />
       
-      <CherryBranch />
 
       <div className="relative z-30 container flex flex-col items-center justify-center px-4">
         <div className="flex flex-col items-center gap-6 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
