@@ -16,41 +16,55 @@ export default function Header() {
     { href: '#contact', label: 'Contact' },
   ];
 
-  // All sections to be tracked by the scroll spy
   const trackedSections = [{ href: '#home', label: 'Home' }, ...navItems];
 
   const [activeLink, setActiveLink] = useState('#home');
   const { playTransition } = useTransition();
 
   useEffect(() => {
+    // A ref to hold the active link, to compare against in the scroll handler
+    // This prevents the scroll handler from re-triggering transitions unnecessarily
+    let currentActive = '#home';
+    
     const handleScroll = () => {
-      // Offset from the top of the viewport. Header is 64px tall.
       const fromTop = window.scrollY + 100;
-
-      // Find the last section that we have scrolled past its top
       const currentSection = [...trackedSections]
         .reverse()
         .find(sectionInfo => {
-            const section = document.querySelector(sectionInfo.href) as HTMLElement;
-            return section && section.offsetTop <= fromTop;
+          const section = document.querySelector(sectionInfo.href) as HTMLElement;
+          return section && section.offsetTop <= fromTop;
         });
-      
-      if (currentSection) {
-        setActiveLink(currentSection.href);
+
+      if (currentSection && currentSection.href !== currentActive) {
+        // A new section has become active
+        currentActive = currentSection.href;
+        setActiveLink(currentActive);
+        playTransition();
       }
     };
 
+    // Set the initial active link without a transition
+    const initialFromTop = window.scrollY + 100;
+    const initialSection = [...trackedSections]
+      .reverse()
+      .find(sectionInfo => {
+        const section = document.querySelector(sectionInfo.href) as HTMLElement;
+        return section && section.offsetTop <= initialFromTop;
+      });
+    if (initialSection) {
+      currentActive = initialSection.href;
+      setActiveLink(currentActive);
+    }
+    
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Set initial state on mount
-
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []); // The empty dependency array is correct here.
+  }, [playTransition]); // Effect depends on playTransition
 
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/10 backdrop-blur-xl supports-[backdrop-filter]:bg-background/5">
       <div className="container flex h-16 items-center">
-        <Link href="#home" onClick={playTransition} className="flex items-center gap-2 mr-6">
+        <Link href="#home" className="flex items-center gap-2 mr-6">
           <DetailedCherryBlossomIcon className="h-6 w-6 text-primary" />
           <span className="font-bold font-headline">Sakura Portfolio</span>
         </Link>
@@ -59,7 +73,6 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              onClick={playTransition}
               className={cn(
                 'flex items-center gap-1 py-2 transition-colors hover:text-foreground/80',
                 activeLink === link.href
@@ -67,11 +80,11 @@ export default function Header() {
                   : 'text-foreground/60'
               )}
             >
-              <span>{link.label}</span>
+              <span className="mr-1">{link.label}</span>
               <div className="flex h-4 w-4 items-center justify-center">
                 <DetailedCherryBlossomIcon
                   className={cn(
-                    'h-full w-full text-primary transition-all duration-300 ease-in-out ml-0.5',
+                    'h-full w-full text-primary transition-all duration-300 ease-in-out',
                     activeLink === link.href
                       ? 'scale-100 opacity-100'
                       : 'scale-0 opacity-0'

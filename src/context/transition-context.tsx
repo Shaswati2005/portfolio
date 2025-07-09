@@ -12,11 +12,14 @@ export const TransitionProvider = ({ children }: { children: ReactNode }) => {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const playTransition = useCallback(() => {
+    // Prevent starting a new transition if one is already in progress
+    if (isTransitioning) return;
+
     setIsTransitioning(true);
     setTimeout(() => {
       setIsTransitioning(false);
     }, 1000); // Duration of the animation
-  }, []);
+  }, [isTransitioning]); // Add dependency
 
   return (
     <TransitionContext.Provider value={{ isTransitioning, playTransition }}>
