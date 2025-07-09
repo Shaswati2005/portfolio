@@ -44,17 +44,17 @@ export default function AboutSection() {
 
             <div className="space-y-4 relative z-10">
                <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm text-secondary-foreground">About Me</div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">A Full-Stack Developer Focused on Building Solutions</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">A Full-Stack Developer with an Eye for Design</h2>
               <p className="text-foreground/80 md:text-lg/relaxed">
-                Hello! I'm Shaswati Mishra, a passionate full-stack developer dedicated to building robust and scalable web applications from the ground up. My journey into technology is fueled by a love for problem-solving and a drive to create efficient, high-performance digital solutions. I thrive on the challenge of architecting and implementing both client-side and server-side logic to power modern web experiences.
+                Hello! I'm Shaswati Mishra, a passionate full-stack developer who believes that great software is born at the intersection of powerful engineering and thoughtful design. I'm driven to build robust, scalable web applications from the ground up, architecting everything from the database to the user interface. I thrive on the challenge of solving complex problems and transforming ideas into efficient, high-performance digital solutions.
               </p>
               <p className="text-foreground/80 md:text-lg/relaxed">
-                With a strong foundation in technologies like React and Next.js for the frontend, and Node.js with various databases for the backend, I'm committed to writing clean, maintainable code and continuously expanding my technical skills. When I'm not coding, I enjoy watching historical dramas and reading novels, which I find sharpens my analytical skills for tackling complex problems. This portfolio showcases my dedication to building with precision and creating impactful technology.
+                With a strong foundation in technologies like React and Next.js for crafting intuitive frontends, and Node.js with various databases for the backend, I'm committed to writing clean, maintainable code. When I'm not coding, I immerse myself in historical dramas and intricate novels, which sharpens my analytical skills and my appreciation for detail—qualities I bring to every project. This portfolio showcases my dedication to building technology that is both impactful and a pleasure to use.
               </p>
             </div>
             <div className="flex items-center gap-4 pt-4 relative z-10">
               <DetailedCherryBlossomIcon className="h-8 w-8 text-primary" />
-              <p className="font-headline text-lg text-primary">Architecting end-to-end solutions with clean code.</p>
+              <p className="font-headline text-lg text-primary">Building beautiful, end-to-end solutions.</p>
             </div>
           </div>
         </div>
