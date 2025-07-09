@@ -9,10 +9,16 @@ const PETAL_COUNT = 20;
 export default function FallingPetals() {
   const isMobile = useIsMobile();
   const [petals, setPetals] = useState<any[]>([]);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
 
   useEffect(() => {
     // Only generate petals on the client and on non-mobile devices
-    if (isMobile === false) {
+    if (isClient && isMobile === false) {
       const generatedPetals = Array.from({ length: PETAL_COUNT }).map((_, i) => ({
         id: i,
         style: {
@@ -29,15 +35,15 @@ export default function FallingPetals() {
     } else {
       setPetals([]);
     }
-  }, [isMobile]);
+  }, [isClient, isMobile]);
 
-  // Don't render anything until we know the screen size, or if it's mobile.
-  if (isMobile !== false) {
+  // Don't render anything on the server, or on mobile, to prevent hydration errors.
+  if (!isClient || isMobile === true || typeof isMobile === 'undefined') {
     return null;
   }
 
   return (
-    <div className="pointer-events-none fixed top-0 left-0 w-full h-full z-0 overflow-hidden">
+    <div className="pointer-events-none fixed top-0 left-0 w-full h-full z-[15] overflow-hidden">
       {petals.map(petal => (
         <CherryPetalIcon
           key={petal.id}
