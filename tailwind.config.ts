@@ -143,8 +143,8 @@ export default {
         },
         'text-cycle': {
           '0%, 40%': { transform: 'translateY(0)' },
-          '50%, 90%': { transform: 'translateY(-50%)' },
-          '100%': { transform: 'translateY(-100%)' },
+          '50%, 90%': { transform: 'translateY(-1.5rem)' },
+          '100%': { transform: 'translateY(-3rem)' },
         },
       },
       animation: {
