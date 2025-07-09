@@ -8,7 +8,7 @@ const projects = [
   {
     title: "Serene E-commerce",
     description: "A minimalist e-commerce platform with a focus on user experience and beautiful product presentation. Built with Next.js and Stripe.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://placehold.co/500x500.png",
     tags: ["Next.js", "React", "Stripe", "Tailwind CSS"],
     aiHint: "minimalist e-commerce",
     githubUrl: "#",
@@ -17,7 +17,7 @@ const projects = [
   {
     title: "Blossom Blogging",
     description: "A content-focused blogging platform with a clean, readable interface and markdown support. Features a custom CMS.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://placehold.co/500x500.png",
     tags: ["React", "Firebase", "Markdown", "UI/UX"],
     aiHint: "aesthetic blog",
     githubUrl: "#",
@@ -26,9 +26,36 @@ const projects = [
   {
     title: "Zenith Dashboard",
     description: "An analytics dashboard for a SaaS product, providing users with clear data visualizations and insights. Designed for clarity and ease of use.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://placehold.co/500x500.png",
     tags: ["TypeScript", "Data Viz", "Figma", "React"],
     aiHint: "analytics dashboard",
+    githubUrl: "#",
+    deployedUrl: "#",
+  },
+  {
+    title: "AI Story Generator",
+    description: "An interactive web app that uses generative AI to create unique short stories based on user prompts. Built with Next.js and Genkit.",
+    image: "https://placehold.co/500x500.png",
+    tags: ["Next.js", "Genkit", "AI", "Vercel"],
+    aiHint: "ai story generator",
+    githubUrl: "#",
+    deployedUrl: "#",
+  },
+  {
+    title: "Travel Planner Pro",
+    description: "A comprehensive travel planning application that helps users organize itineraries, book flights, and discover new destinations.",
+    image: "https://placehold.co/500x500.png",
+    tags: ["React Native", "Firebase", "Google Maps API"],
+    aiHint: "travel planner app",
+    githubUrl: "#",
+    deployedUrl: "#",
+  },
+  {
+    title: "Kyoto Photography",
+    description: "A photo gallery website showcasing the beauty of Kyoto through stunning photography. Features a masonry layout and smooth animations.",
+    image: "https://placehold.co/500x500.png",
+    tags: ["Gatsby", "GraphQL", "Framer Motion"],
+    aiHint: "photography gallery",
     githubUrl: "#",
     deployedUrl: "#",
   },
@@ -47,13 +74,13 @@ export default function ProjectsSection() {
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
-            <div key={project.title} className="group relative aspect-video w-full overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-primary/30 animate-fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>
+            <div key={project.title} className="group relative aspect-square w-full overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-primary/30 animate-fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>
               <Image
                 src={project.image}
                 alt={project.title}
                 data-ai-hint={project.aiHint}
-                width={600}
-                height={400}
+                width={500}
+                height={500}
                 className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
