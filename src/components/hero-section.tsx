@@ -15,14 +15,14 @@ interface AnimatedButtonProps extends ButtonProps {
 
 const AnimatedButton = ({ children, isAnimating, onAnimate, ...props }: AnimatedButtonProps) => {
   const createPetals = () =>
-    Array.from({ length: 15 }).map((_, i) => ({
+    Array.from({ length: 30 }).map((_, i) => ({
       id: i,
       style: {
-        '--petal-end-x': `${(Math.random() - 0.5) * 250}px`,
-        '--petal-end-y': `${(Math.random() - 0.5) * 250}px`,
+        '--petal-end-x': `${(Math.random() - 0.5) * 350}px`,
+        '--petal-end-y': `${(Math.random() - 0.5) * 350}px`,
         '--petal-end-rotation': `${(Math.random() - 0.5) * 720}deg`,
         animationDelay: `${Math.random() * 0.3}s`,
-        color: `hsl(var(--primary) / ${Math.random() * 0.5 + 0.5})`,
+        color: `hsl(var(--accent) / ${Math.random() * 0.5 + 0.5})`,
       } as React.CSSProperties,
     }));
 
@@ -31,18 +31,18 @@ const AnimatedButton = ({ children, isAnimating, onAnimate, ...props }: Animated
       <Button
         {...props}
         onClick={onAnimate}
-        className="relative transition-colors duration-300 ease-in-out data-[animating=true]:bg-accent data-[animating=true]:text-accent-foreground data-[animating=true]:animate-button-press"
+        className="relative z-10 transition-colors duration-300 ease-in-out data-[animating=true]:bg-accent data-[animating=true]:text-accent-foreground data-[animating=true]:animate-button-press"
         data-animating={isAnimating}
       >
         {children}
       </Button>
       {isAnimating && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="absolute inset-0 -m-2 rounded-full bg-primary/30 animate-halo" />
+          <div className="absolute inset-0 -m-2 rounded-full bg-accent/30 animate-halo" />
           {createPetals().map((petal) => (
             <CherryPetalIcon
               key={petal.id}
-              className="absolute w-3 h-3 text-primary animate-petal-toss"
+              className="absolute w-3 h-3 animate-petal-toss"
               style={petal.style}
             />
           ))}
