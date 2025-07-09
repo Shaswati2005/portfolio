@@ -181,7 +181,7 @@ export default {
         'transition-blossom': 'transition-blossom 1s ease-in-out forwards',
         'text-cycle': 'text-cycle 10s ease-in-out infinite',
         'water-ripple': 'water-ripple 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
-        'sun-rays': 'sun-rays 60s linear infinite',
+        'sun-rays': 'sun-rays 90s linear infinite',
       },
     },
   },
