@@ -92,7 +92,7 @@ export default function HeroSection() {
       <div className="relative z-30 container flex flex-col items-center justify-center px-4">
         <div className="flex flex-col items-center gap-6">
           <h1 className="text-4xl font-headline font-bold tracking-tighter sm:text-5xl md:text-6xl text-white drop-shadow-lg">
-            {"Full-Stack Developer & Designer".split(" ").map((word, index) => (
+            {"Elegant Designs, Powerful Code".split(" ").map((word, index) => (
               <span
                 key={index}
                 className="inline-block animate-fade-in-up opacity-0"
@@ -106,7 +106,7 @@ export default function HeroSection() {
             className="max-w-[700px] text-white/90 md:text-xl drop-shadow-md animate-fade-in-up opacity-0"
             style={{ animationDelay: '0.7s', animationFillMode: 'forwards' }}
           >
-            I build thoughtful and robust web applications from concept to deployment. Explore my projects to see how I blend technology and design.
+            Welcome to my digital garden. I'm a passionate developer and designer, creating beautiful and functional web experiences. Explore my work and let's build something amazing together.
           </p>
         </div>
         <div
