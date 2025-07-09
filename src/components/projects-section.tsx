@@ -6,13 +6,13 @@ import { Github, ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    title: "Serene E-commerce",
-    description: "A minimalist e-commerce platform with a focus on user experience and beautiful product presentation. Built with Next.js and Stripe.",
-    image: "https://placehold.co/500x500.png",
-    tags: ["Next.js", "React", "Stripe", "Tailwind CSS"],
-    aiHint: "minimalist e-commerce",
-    githubUrl: "#",
-    deployedUrl: "#",
+    title: "UNBOT",
+    description: "An AI-powered CV builder that generates tailored resumes with real-time editing, role-specific skill.",
+    image: "/unbot.png",
+    tags: ["Next.js", "Tailwind Css" , "Gemini API", ],
+    aiHint: "An AI CV generator ",
+    githubUrl: "https://github.com/Shaswati2005/unbot",
+    deployedUrl: "https://unbot.vercel.app/",
   },
   {
     title: "Blossom Blogging",
