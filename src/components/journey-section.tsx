@@ -5,32 +5,44 @@ import type { SVGProps } from "react";
 import { Card } from "@/components/ui/card";
 
 const JourneyPathBackground = (props: SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMin slice" xmlns="http://www.w3.org/2000/svg" {...props}>
         <defs>
-            <linearGradient id="sky" x1="0.5" y1="0" x2="0.5" y2="1">
+            <linearGradient id="journey-sky" x1="0.5" y1="0" y2="1">
                 <stop offset="0%" stopColor="hsl(var(--secondary) / 0.2)" />
-                <stop offset="100%" stopColor="hsl(var(--background) / 0.5)" />
+                <stop offset="100%" stopColor="hsl(var(--background) / 0.6)" />
             </linearGradient>
-            <path id="journey-path-visual" d="M 200 680 Q 450 550, 600 450 T 1000 250" stroke="hsl(var(--primary) / 0.15)" strokeWidth="60" strokeDasharray="1 15" strokeLinecap="round" fill="none" />
-             <filter id="misty">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
+            <filter id="misty-glow">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
             </filter>
         </defs>
-        <rect width="1200" height="800" fill="url(#sky)" />
 
-        {/* Sun/Moon */}
-        <circle cx="1050" cy="150" r="30" fill="hsl(var(--primary))" opacity="0.6" />
+        <rect width="1200" height="800" fill="url(#journey-sky)" />
 
-        <g opacity="0.8" filter="url(#misty)">
-            {/* Distant mountains */}
-            <path d="M -100 800 V 500 C 150 400, 300 550, 500 500 C 700 450, 850 550, 1050 500 C 1250 450, 1300 500, 1300 500 V 800 Z" fill="hsl(var(--muted) / 0.3)" />
-            {/* Mid mountains */}
-            <path d="M -100 800 V 600 C 200 550, 400 650, 600 600 C 800 550, 950 650, 1150 600 C 1350 550, 1300 600, 1300 600 V 800 Z" fill="hsl(var(--muted) / 0.5)" />
-            {/* Foreground hill */}
-            <path d="M -100 800 V 700 C 300 650, 500 750, 800 700 C 1100 650, 1300 750, 1300 750 V 800 Z" fill="hsl(var(--card) / 0.6)" />
+        <circle cx="250" cy="300" r="100" fill="hsl(var(--primary))" opacity="0.3" filter="url(#misty-glow)" />
+        <circle cx="250" cy="300" r="70" fill="hsl(var(--primary))" opacity="0.5" />
+
+        <path d="M -50 800 C 300 800, 600 500, 1250 350 V 800 Z" fill="hsl(var(--card) / 0.4)" />
+        <path d="M -50 800 C 200 800, 500 600, 1250 450 V 800 Z" fill="hsl(var(--card) / 0.5)" />
+
+        <g transform="translate(950, 180) scale(1.2)">
+            <path d="M 0 180 V 50 C -10 30, -30 40, -50 20" stroke="#382323" strokeWidth="10" fill="none" strokeLinecap="round"/>
+            <path d="M 0 120 C 20 110, 40 100, 60 70 C 80 40, 100 50, 120 40" stroke="#382323" strokeWidth="8" fill="none" strokeLinecap="round"/>
+            <path d="M -5 70 C -15 65, -30 50, -20 30" stroke="#382323" strokeWidth="6" fill="none" strokeLinecap="round"/>
+
+            <g opacity="0.9">
+              <circle cx="125" cy="35" r="20" fill="hsl(var(--primary))" />
+              <circle cx="110" cy="50" r="25" fill="hsl(var(--accent))" />
+              <circle cx="135" cy="55" r="18" fill="hsl(var(--primary))" />
+              
+              <circle cx="50" cy="65" r="22" fill="hsl(var(--accent))" />
+              <circle cx="70" cy="75" r="28" fill="hsl(var(--primary))" />
+              <circle cx="65" cy="55" r="20" fill="hsl(var(--accent))" />
+
+              <circle cx="-55" cy="15" r="18" fill="hsl(var(--primary))" />
+              <circle cx="-40" cy="30" r="25" fill="hsl(var(--accent))" />
+              <circle cx="-60" cy="35" r="15" fill="hsl(var(--primary))" />
+            </g>
         </g>
-
-        <use href="#journey-path-visual" />
     </svg>
 );
 
@@ -65,7 +77,7 @@ const journeyData = [
 export default function JourneySection() {
     return (
         <section id="journey" className="relative w-full py-20 md:py-32 bg-background overflow-hidden">
-            <div className="absolute inset-0 z-0 opacity-70">
+            <div className="absolute inset-0 z-0 opacity-80">
               <JourneyPathBackground className="w-full h-full object-cover"/>
             </div>
             <div className="container mx-auto px-4 md:px-6 relative z-10">
