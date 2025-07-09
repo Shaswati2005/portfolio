@@ -72,11 +72,19 @@ export default function ContactSection() {
             >
               <Card className="relative h-full bg-card/70 hover:bg-card border-2 border-transparent hover:border-primary/70 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 flex flex-col text-center">
                 <Image
-                  src="/border.jpg"
+                  src="/border.png"
                   alt="Card corner decoration"
                   width={128}
                   height={128}
-                  className="absolute -top-5 -right-5 w-28 h-28 pointer-events-none object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute -top-2 -right-0 w-28 h-28 pointer-events-none object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                />
+
+                <Image
+                  src="/border.png"
+                  alt="Card corner decoration"
+                  width={128}
+                  height={128}
+                  className="absolute -bottom-2 -left-0 transform scale-x-[-1] scale-y-[-1] w-28 h-28 pointer-events-none object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                 />
                 
                 <CardContent className="relative z-10 p-8 flex flex-col items-center justify-center gap-4 flex-1">

@@ -1,4 +1,5 @@
 import { Badge } from '@/components/ui/badge';
+import SkillBranch from '@/components/skill-branch';
 
 export default function SkillsSection() {
   const skills = [
@@ -7,8 +8,9 @@ export default function SkillsSection() {
   ];
 
   return (
-    <section id="skills" className="w-full py-20 md:py-32 bg-primary/10">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="skills" className="relative w-full py-20 md:py-32 bg-primary/10 overflow-hidden">
+      <SkillBranch />
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
             <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm text-secondary-foreground">My Skills</div>
