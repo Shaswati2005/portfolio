@@ -56,12 +56,13 @@ export default function Header() {
               key={link.href}
               href={link.href}
               className={cn(
-                'flex items-center gap-2 py-2 transition-colors hover:text-foreground/80',
+                'flex items-center gap-1.5 py-2 transition-colors hover:text-foreground/80',
                 activeLink === link.href
                   ? 'font-bold text-foreground'
                   : 'text-foreground/60'
               )}
             >
+              <span>{link.label}</span>
               <div className="flex h-4 w-4 items-center justify-center">
                 <DetailedCherryBlossomIcon
                   className={cn(
@@ -72,7 +73,6 @@ export default function Header() {
                   )}
                 />
               </div>
-              <span>{link.label}</span>
             </Link>
           ))}
         </nav>
