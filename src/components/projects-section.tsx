@@ -48,7 +48,6 @@ const projects = [
     tags: ["React Native", "Firebase", "Google Maps API"],
     aiHint: "travel planner app",
     githubUrl: "#",
-    deployedUrl: "#",
   },
   {
     title: "Kyoto Photography",
@@ -57,7 +56,6 @@ const projects = [
     tags: ["Gatsby", "GraphQL", "Framer Motion"],
     aiHint: "photography gallery",
     githubUrl: "#",
-    deployedUrl: "#",
   },
 ];
 
@@ -103,12 +101,14 @@ export default function ProjectsSection() {
                           GitHub
                       </a>
                   </Button>
-                  <Button asChild variant="outline" size="sm">
-                      <a href={project.deployedUrl} target="_blank" rel="noreferrer">
-                          <ExternalLink className="mr-2 h-4 w-4"/>
-                          Live Site
-                      </a>
-                  </Button>
+                  {project.deployedUrl && project.deployedUrl !== '#' && (
+                    <Button asChild variant="outline" size="sm">
+                        <a href={project.deployedUrl} target="_blank" rel="noreferrer">
+                            <ExternalLink className="mr-2 h-4 w-4"/>
+                            Live Site
+                        </a>
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>
