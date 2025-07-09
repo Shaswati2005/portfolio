@@ -11,7 +11,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/30 backdrop-blur-lg supports-[backdrop-filter]:bg-background/10">
+    <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-background/10 backdrop-blur-xl supports-[backdrop-filter]:bg-background/5">
       <div className="container flex h-16 items-center">
         <Link href="/" className="flex items-center gap-2 mr-6">
           <CherryBlossomIcon className="h-6 w-6 text-primary" />
