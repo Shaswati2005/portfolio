@@ -5,19 +5,22 @@ import Link from 'next/link';
 import { DetailedCherryBlossomIcon } from '@/components/icons/detailed-cherry-blossom-icon';
 import { cn } from '@/lib/utils';
 import { useTransition } from '@/context/transition-context';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { Button } from '@/components/ui/button';
+import { Menu, X } from 'lucide-react';
+
+const navItems = [
+  { href: '#about', label: 'About' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#journey', label: 'Journey' },
+  { href: '#find-me-online', label: 'Online' },
+  { href: '#contact', label: 'Contact' },
+];
+
+const trackedSections = [{ href: '#home', label: 'Home' }, ...navItems];
 
 export default function Header() {
-  const navItems = [
-    { href: '#about', label: 'About' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#journey', label: 'Journey' },
-    { href: '#find-me-online', label: 'Online' },
-    { href: '#contact', label: 'Contact' },
-  ];
-
-  const trackedSections = [{ href: '#home', label: 'Home' }, ...navItems];
-
   const [activeLink, setActiveLink] = useState('#home');
   const { playTransition } = useTransition();
 
@@ -106,8 +109,41 @@ export default function Header() {
             </Link>
           ))}
         </nav>
-        <div className="flex flex-1 items-center justify-end">
-          {/* A mobile menu could be added here */}
+        <div className="flex flex-1 items-center justify-end md:hidden">
+           <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Open menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] bg-background/90 backdrop-blur-xl">
+               <div className="flex justify-between items-center mb-8 px-2">
+                <SheetClose asChild>
+                  <Link href="#home" onClick={playTransition} className="flex items-center gap-2">
+                    <DetailedCherryBlossomIcon className="h-6 w-6 text-primary" />
+                    <span className="font-bold">Shaswati Mishra</span>
+                  </Link>
+                </SheetClose>
+               </div>
+              <nav className="flex flex-col gap-4 text-lg font-medium px-2">
+                {navItems.map((link) => (
+                  <SheetClose asChild key={link.href}>
+                    <Link
+                      href={link.href}
+                      onClick={playTransition}
+                      className={cn(
+                        'flex items-center rounded-md px-2 py-2 transition-colors hover:text-primary',
+                         activeLink === link.href ? 'font-bold text-primary bg-primary/10' : 'text-foreground/80'
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                  </SheetClose>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>
