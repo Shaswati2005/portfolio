@@ -3,7 +3,7 @@
 import { Github, Linkedin, Mail, CodeXml, FileText } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { LeetCodeIcon } from './icons/leetcode-icon';
-import { DetailedCherryBlossomIcon } from './icons/detailed-cherry-blossom-icon';
+import { CornerBlossomFrame } from './corner-blossom-frame';
 
 const socialLinks = [
   {
@@ -70,22 +70,22 @@ export default function ContactSection() {
               rel="noopener noreferrer"
               className="group rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
             >
-              <Card className="h-full bg-card/70 hover:bg-card border-2 border-transparent hover:border-primary/70 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 flex flex-col text-center">
-                <CardContent className="p-8 flex flex-col items-center gap-4 flex-1">
-                  <div className="relative flex items-center justify-center h-24 w-24 mb-4">
-                    <DetailedCherryBlossomIcon className="absolute h-full w-full text-primary/30 transition-all duration-700 ease-in-out group-hover:scale-110 group-hover:rotate-[25deg] group-hover:text-primary/50" />
-                    <div className="relative z-10 flex items-center justify-center h-16 w-16 bg-card rounded-full shadow-md transition-transform duration-300 group-hover:scale-105">
+              <Card className="relative h-full bg-card/70 hover:bg-card border-2 border-transparent hover:border-primary/70 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 flex flex-col text-center overflow-hidden">
+                <CornerBlossomFrame className="absolute -top-10 -left-10 w-32 h-32 text-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out -z-0" />
+                <CornerBlossomFrame className="absolute -bottom-10 -right-10 w-32 h-32 text-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out rotate-180 -z-0" />
+                
+                <CardContent className="relative z-10 p-8 flex flex-col items-center justify-center gap-4 flex-1">
+                    <div className="flex items-center justify-center h-16 w-16 mb-2 bg-card/80 backdrop-blur-sm rounded-full shadow-lg transition-transform duration-300 group-hover:scale-110">
                       {link.icon}
                     </div>
-                  </div>
-
-                  <div className="flex-1 text-center">
-                    <h3 className="text-2xl font-headline font-bold">{link.name}</h3>
-                    <p className="text-md text-muted-foreground font-sans truncate">{link.handle}</p>
-                  </div>
-                   <div className="mt-auto text-sm font-medium text-primary group-hover:underline underline-offset-4">
-                     {link.cta} &rarr;
-                   </div>
+  
+                    <div className="text-center">
+                      <h3 className="text-2xl font-headline font-bold">{link.name}</h3>
+                      <p className="text-md text-muted-foreground font-sans truncate">{link.handle}</p>
+                    </div>
+                    <div className="mt-auto pt-4 text-sm font-medium text-primary group-hover:underline underline-offset-4">
+                      {link.cta} &rarr;
+                    </div>
                 </CardContent>
               </Card>
             </a>
