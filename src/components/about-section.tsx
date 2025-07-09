@@ -4,20 +4,6 @@ import { DetailedCherryBlossomIcon } from './icons/detailed-cherry-blossom-icon'
 export default function AboutSection() {
   return (
     <section id="about" className="relative w-full py-20 md:py-32 bg-background overflow-hidden">
-      {/* Branch Decoration */}
-      <div className="pointer-events-none absolute -left-24 top-16 w-[500px] h-auto opacity-40 hidden lg:block z-0">
-         <div className="absolute inset-0 bg-primary/20 rounded-full blur-[100px]" />
-         <div className="animate-sway" style={{ transformOrigin: '90% 90%', animationDuration: '30s' }}>
-            <Image
-              src="/branch.png"
-              alt="Cherry blossom branch"
-              width={500}
-              height={375}
-              className="transform -rotate-[55deg] scale-110"
-            />
-        </div>
-      </div>
-
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid gap-12 md:grid-cols-5 md:gap-16 items-center">
           <div className="md:col-span-2">
@@ -34,8 +20,22 @@ export default function AboutSection() {
               />
             </div>
           </div>
-          <div className="md:col-span-3 space-y-6">
-            <div className="space-y-4">
+          <div className="md:col-span-3 space-y-6 relative">
+             {/* Branch Decoration */}
+            <div className="pointer-events-none absolute -right-32 -top-24 w-[500px] h-auto opacity-30 hidden lg:block z-0">
+               <div className="absolute inset-0 bg-primary/20 rounded-full blur-[100px]" />
+               <div className="animate-sway" style={{ transformOrigin: '10% 90%', animationDuration: '30s', animationDelay: '-5s' }}>
+                  <Image
+                    src="/branch.png"
+                    alt="Cherry blossom branch"
+                    width={500}
+                    height={375}
+                    className="transform rotate-[20deg] scale-x-[-1] scale-125"
+                  />
+              </div>
+            </div>
+
+            <div className="space-y-4 relative z-10">
                <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm text-secondary-foreground">About Me</div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">A Developer with a Passion for Artistry</h2>
               <p className="text-foreground/80 md:text-lg/relaxed">
@@ -45,7 +45,7 @@ export default function AboutSection() {
                 From crafting pixel-perfect user interfaces with React and Next.js to building scalable backend systems, I'm constantly learning and honing my skills. When I'm not coding, you can find me exploring new art styles, tending to my bonsai trees, or getting lost in a good book. This portfolio is a reflection of my philosophy: to build with precision, creativity, and a touch of serenity.
               </p>
             </div>
-            <div className="flex items-center gap-4 pt-4">
+            <div className="flex items-center gap-4 pt-4 relative z-10">
               <DetailedCherryBlossomIcon className="h-8 w-8 text-primary" />
               <p className="font-headline text-lg text-primary">Building beautiful things, one line of code at a time.</p>
             </div>
