@@ -16,7 +16,7 @@ const journeyData = [
   },
   {
     icon: <School className="h-8 w-8 text-primary" />,
-    title: "Class XII Diploma",
+    title: "Class XII Certificate",
     institution: "High School Name",
     period: "Completed",
     description: "Focused on science and mathematics, scoring 94% and building a strong foundation for engineering.",
@@ -32,6 +32,7 @@ const journeyData = [
 
 export default function JourneySection() {
     const [activeIndex, setActiveIndex] = useState<number>(0);
+    const activeItem = journeyData[activeIndex];
 
     return (
         <section
@@ -77,23 +78,21 @@ export default function JourneySection() {
 
                     {/* Right side: Details pane */}
                     <div className="col-span-1 relative min-h-[200px]">
-                        {journeyData.map((item, index) => (
-                             <div
-                                key={index}
-                                className={`absolute w-full transition-all duration-300 ease-in-out ${activeIndex === index ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}
-                            >
-                                <Card className="bg-card/80 backdrop-blur-sm border-primary/30 shadow-lg">
-                                    <CardContent className="p-6 flex items-start">
-                                        <div className="mr-4 pt-1">{item.icon}</div>
-                                        <div className="flex-1">
-                                            <h3 className="text-xl font-headline font-bold">{item.title}</h3>
-                                            <p className="text-sm text-muted-foreground font-sans">{item.institution} &bull; {item.period}</p>
-                                            <p className="mt-2 text-foreground/90 font-sans">{item.description}</p>
-                                        </div>
-                                    </CardContent>
-                                </Card>
-                            </div>
-                        ))}
+                         <div
+                            className="absolute w-full transition-transform duration-300 ease-out"
+                            style={{ transform: `translateY(calc(${activeIndex} * 8.5rem))`}}
+                        >
+                            <Card className="bg-card/80 backdrop-blur-sm border-primary/30 shadow-lg">
+                                <CardContent className="p-6 flex items-start">
+                                    <div className="mr-4 pt-1">{activeItem.icon}</div>
+                                    <div className="flex-1">
+                                        <h3 className="text-xl font-headline font-bold">{activeItem.title}</h3>
+                                        <p className="text-sm text-muted-foreground font-sans">{activeItem.institution} &bull; {activeItem.period}</p>
+                                        <p className="mt-2 text-foreground/90 font-sans">{activeItem.description}</p>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </div>
                     </div>
                 </div>
 
