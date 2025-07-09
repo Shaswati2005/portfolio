@@ -14,7 +14,7 @@ const navItems = [
   { href: '#projects', label: 'Projects' },
   { href: '#skills', label: 'Skills' },
   { href: '#journey', label: 'Journey' },
-  { href: '#find-me-online', label: 'Online' },
+  { href: '#find-me-online', label: 'Reach Out' },
   { href: '#contact', label: 'Contact' },
 ];
 
