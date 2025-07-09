@@ -32,25 +32,27 @@ export default function CursorPetalEffect() {
   }, []);
 
   useEffect(() => {
-    if (isMobile) return;
+    if (isMobile === false) {
+      let inThrottle: boolean;
+      const handleMouseMove = (e: MouseEvent) => {
+          if (!inThrottle) {
+              addPetal(e.clientX, e.clientY);
+              inThrottle = true;
+              setTimeout(() => inThrottle = false, 50);
+          }
+      };
 
-    let inThrottle: boolean;
-    const handleMouseMove = (e: MouseEvent) => {
-        if (!inThrottle) {
-            addPetal(e.clientX, e.clientY);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, 50);
-        }
-    };
+      window.addEventListener('mousemove', handleMouseMove);
 
-    window.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
+      return () => {
+        window.removeEventListener('mousemove', handleMouseMove);
+      };
+    }
   }, [addPetal, isMobile]);
 
-  if (isMobile) return null;
+  if (isMobile !== false) {
+    return null;
+  }
 
   return (
     <div className="pointer-events-none fixed top-0 left-0 w-full h-full z-50 overflow-hidden">
