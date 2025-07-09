@@ -147,8 +147,18 @@ export default {
           '100%': { transform: 'translateY(-3rem)' },
         },
         'water-ripple': {
-          '0%': { transform: 'scale(0)', opacity: '1' },
-          '100%': { transform: 'scale(3)', opacity: '0' },
+          '0%': {
+            width: '0rem',
+            height: '0rem',
+            opacity: '1',
+            borderWidth: '0.25rem',
+          },
+          '100%': {
+            width: '30rem',
+            height: '30rem',
+            opacity: '0',
+            borderWidth: '0.05rem',
+          },
         },
       },
       animation: {
@@ -166,7 +176,7 @@ export default {
         'transition-fade': 'transition-fade 1s ease-in-out forwards',
         'transition-blossom': 'transition-blossom 1s ease-in-out forwards',
         'text-cycle': 'text-cycle 10s ease-in-out infinite',
-        'water-ripple': 'water-ripple 0.6s ease-out forwards',
+        'water-ripple': 'water-ripple 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
       },
     },
   },

@@ -29,7 +29,7 @@ export default function WaterRippleEffect() {
 
     setTimeout(() => {
       setRipples(prev => prev.filter(r => r.id !== id));
-    }, 600); // Corresponds to animation duration
+    }, 1000); // Corresponds to animation duration
   }, []);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function WaterRippleEffect() {
       {ripples.map(ripple => (
         <div
           key={ripple.id}
-          className="absolute h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-primary/50 animate-water-ripple"
+          className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full border-primary/80 animate-water-ripple"
           style={{
             left: ripple.x,
             top: ripple.y,
