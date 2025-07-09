@@ -126,7 +126,11 @@ export default {
         'falling-petal': {
             '0%': { transform: 'translate(var(--petal-start-x), -10vh) rotate(0deg)', opacity: '1' },
             '100%': { transform: 'translate(calc(var(--petal-start-x) + var(--petal-sway-x)), 110vh) rotate(var(--petal-final-rotation))', opacity: '0.2' },
-        }
+        },
+        'pulse-slow': {
+          '0%, 100%': { opacity: '0.5', transform: 'scale(1)' },
+          '50%': { opacity: '1', transform: 'scale(1.02)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -139,6 +143,7 @@ export default {
         'button-press': 'button-press 0.3s ease-in-out',
         'cursor-petal': 'cursor-petal var(--petal-duration, 1.5s) ease-out forwards',
         'falling-petal': 'falling-petal linear infinite',
+        'pulse-slow': 'pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
     },
   },

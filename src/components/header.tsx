@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 
 export default function Header() {
   const navItems = [
+    { href: '#about', label: 'About' },
     { href: '#projects', label: 'Projects' },
     { href: '#skills', label: 'Skills' },
     { href: '#journey', label: 'Journey' },
