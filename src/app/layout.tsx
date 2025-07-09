@@ -5,6 +5,7 @@ import CursorPetalEffect from '@/components/cursor-petal-effect';
 import FallingPetals from '@/components/falling-petals';
 import { TransitionProvider } from '@/context/transition-context';
 import TransitionEffect from '@/components/transition-effect';
+import WaterRippleEffect from '@/components/water-ripple-effect';
 
 export const metadata: Metadata = {
   title: 'Shaswati Mishra Portfolio',
@@ -27,6 +28,7 @@ export default function RootLayout({
         <TransitionProvider>
           <CursorPetalEffect />
           <FallingPetals />
+          <WaterRippleEffect />
           {children}
           <Toaster />
           <TransitionEffect />

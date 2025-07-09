@@ -146,6 +146,10 @@ export default {
           '50%, 90%': { transform: 'translateY(-1.5rem)' },
           '100%': { transform: 'translateY(-3rem)' },
         },
+        'water-ripple': {
+          '0%': { transform: 'scale(0)', opacity: '1' },
+          '100%': { transform: 'scale(3)', opacity: '0' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -162,6 +166,7 @@ export default {
         'transition-fade': 'transition-fade 1s ease-in-out forwards',
         'transition-blossom': 'transition-blossom 1s ease-in-out forwards',
         'text-cycle': 'text-cycle 10s ease-in-out infinite',
+        'water-ripple': 'water-ripple 0.6s ease-out forwards',
       },
     },
   },
