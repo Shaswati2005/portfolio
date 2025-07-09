@@ -11,11 +11,21 @@ const JourneyPathBackground = (props: SVGProps<SVGSVGElement>) => (
                 <stop offset="0%" stopColor="hsl(var(--secondary) / 0.2)" />
                 <stop offset="100%" stopColor="hsl(var(--background) / 0.5)" />
             </linearGradient>
+            {/* The path SVG for cards to follow visually */}
+            <path id="journey-path-visual" d="M 200 680 Q 450 550, 600 450 T 1000 250" stroke="hsl(var(--primary) / 0.15)" strokeWidth="60" strokeDasharray="1 15" strokeLinecap="round" fill="none" />
         </defs>
         <rect width="1200" height="800" fill="url(#sky)" />
-        <path d="M-100 800 L -100 650 C 150 550, 350 700, 600 600 C 850 500, 1050 650, 1300 550 L 1300 800 Z" fill="hsl(var(--muted) / 0.3)" />
-        <path d="M-50 800 C 200 800, 400 600, 700 550 C 1000 500, 1150 550, 1300 520 L 1300 800 L -50 800 Z" fill="hsl(var(--card) / 0.4)" />
-        <path d="M1050 425 L1050 375 L1100 390 L1050 405 Z" fill="hsl(var(--primary))" opacity="0.7" />
+
+        {/* Distant mountains */}
+        <path d="M -50,500 150,350 300,480 450,300 600,550 800,400 950,520 1250,300 1250,800 -50,800 Z" fill="hsl(var(--muted) / 0.4)" />
+        
+        {/* Foreground hill */}
+        <path d="M -50,800 C 200,800 300,600 600,650 C 900,700 1100,550 1250,600 L 1250,800 Z" fill="hsl(var(--card) / 0.4)" />
+
+        <use href="#journey-path-visual" />
+
+        {/* Sun/Moon */}
+        <circle cx="1050" cy="150" r="30" fill="hsl(var(--primary))" opacity="0.6" />
     </svg>
 );
 
@@ -50,7 +60,7 @@ const journeyData = [
 export default function JourneySection() {
     return (
         <section id="journey" className="relative w-full py-20 md:py-32 bg-background overflow-hidden">
-            <div className="absolute inset-0 z-0 opacity-50">
+            <div className="absolute inset-0 z-0 opacity-70">
               <JourneyPathBackground className="w-full h-full object-cover"/>
             </div>
             <div className="container mx-auto px-4 md:px-6 relative z-10">
