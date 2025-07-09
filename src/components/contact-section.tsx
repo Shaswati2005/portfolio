@@ -1,93 +1,135 @@
+
 'use client';
 
-import { Github, Linkedin, Mail, CodeXml, FileText } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { LeetCodeIcon } from './icons/leetcode-icon';
-
-const socialLinks = [
-  {
-    icon: <Mail className="h-8 w-8 text-primary" />,
-    name: 'Email',
-    handle: 'mishrashaswati2005@gmail.com',
-    href: 'mailto:mishrashaswati2005@gmail.com',
-    cta: 'Send a message'
-  },
-  {
-    icon: <Github className="h-8 w-8 text-primary" />,
-    name: 'GitHub',
-    handle: '@your-username',
-    href: '#',
-    cta: 'View on GitHub'
-  },
-  {
-    icon: <Linkedin className="h-8 w-8 text-primary" />,
-    name: 'LinkedIn',
-    handle: 'Your Name',
-    href: '#',
-    cta: 'Connect on LinkedIn'
-  },
-  {
-    icon: <CodeXml className="h-8 w-8 text-primary" />,
-    name: 'Codeforces',
-    handle: '@your-username',
-    href: '#',
-    cta: 'View Profile'
-  },
-  {
-    icon: <LeetCodeIcon className="h-8 w-8 text-primary" />,
-    name: 'LeetCode',
-    handle: '@your-username',
-    href: '#',
-    cta: 'View Profile'
-  },
-  {
-    icon: <FileText className="h-8 w-8 text-primary" />,
-    name: 'Resume',
-    handle: 'View my credentials',
-    href: '#',
-    cta: 'Open Drive Link'
-  },
-];
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { sendEmail } from '@/ai/flows/send-email-flow';
+import { SendEmailInputSchema } from '@/lib/schemas';
+import { useToast } from '@/hooks/use-toast';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Loader2 } from 'lucide-react';
 
 export default function ContactSection() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const form = useForm<z.infer<typeof SendEmailInputSchema>>({
+    resolver: zodResolver(SendEmailInputSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      message: '',
+    },
+  });
+
+  async function onSubmit(values: z.infer<typeof SendEmailInputSchema>) {
+    setIsSubmitting(true);
+    try {
+      const result = await sendEmail(values);
+      if (result.success) {
+        toast({
+          title: 'Message Sent!',
+          description: "Thanks for reaching out. I'll get back to you soon.",
+        });
+        form.reset();
+      } else {
+        throw new Error(result.message);
+      }
+    } catch (error) {
+      toast({
+        variant: 'destructive',
+        title: 'Uh oh! Something went wrong.',
+        description: 'There was a problem sending your message. Please try again.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <section id="contact" className="w-full py-20 md:py-32 bg-primary/10">
-      <div className="container">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
-          <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm text-secondary-foreground">Connect</div>
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Find Me Online</h2>
-          <p className="max-w-[900px] text-foreground/80 md:text-xl/relaxed">
-            I'm always open to connecting. Feel free to reach out or check out my profiles below.
-          </p>
+        <div className="container mx-auto px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm text-secondary-foreground">Contact</div>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Get In Touch</h2>
+                <p className="max-w-[900px] text-foreground/80 md:text-xl/relaxed">
+                    Have a question or want to work together? Drop me a line.
+                </p>
+            </div>
+            <div className="mx-auto max-w-2xl">
+                <Card className="bg-card/70 border-primary/20 backdrop-blur-sm">
+                    <CardHeader>
+                        <CardTitle>Send a Message</CardTitle>
+                        <CardDescription>I'll do my best to respond within 24 hours.</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <Form {...form}>
+                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                                <FormField
+                                    control={form.control}
+                                    name="name"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Your Name</FormLabel>
+                                            <FormControl>
+                                                <Input placeholder="Sakura" {...field} />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="email"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Your Email</FormLabel>
+                                            <FormControl>
+                                                <Input type="email" placeholder="sakura@example.com" {...field} />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="message"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Your Message</FormLabel>
+                                            <FormControl>
+                                                <Textarea
+                                                    placeholder="Let's build something amazing together..."
+                                                    className="min-h-[120px]"
+                                                    {...field}
+                                                />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                                    {isSubmitting ? (
+                                        <>
+                                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                            Sending...
+                                        </>
+                                    ) : (
+                                        'Send Message'
+                                    )}
+                                </Button>
+                            </form>
+                        </Form>
+                    </CardContent>
+                </Card>
+            </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
-          {socialLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background"
-            >
-              <Card className="relative h-full bg-card/70 hover:bg-card border-2 border-transparent hover:border-primary/70 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 flex flex-col text-center">
-                <CardContent className="relative z-10 p-8 flex flex-col items-center justify-center gap-4 flex-1">
-                    <div className="flex items-center justify-center h-16 w-16 mb-2 bg-card/80 backdrop-blur-sm rounded-full shadow-lg transition-transform duration-300 group-hover:scale-110">
-                      {link.icon}
-                    </div>
-  
-                    <div className="text-center">
-                      <h3 className="text-2xl font-headline font-bold">{link.name}</h3>
-                      <p className="text-md text-muted-foreground font-sans truncate">{link.handle}</p>
-                    </div>
-                    <div className="mt-auto pt-4 text-sm font-medium text-primary group-hover:underline underline-offset-4">
-                      {link.cta} &rarr;
-                    </div>
-                </CardContent>
-              </Card>
-            </a>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }

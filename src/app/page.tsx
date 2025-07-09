@@ -4,6 +4,7 @@ import ProjectsSection from '@/components/projects-section';
 import SkillsSection from '@/components/skills-section';
 import JourneySection from '@/components/journey-section';
 import ContactSection from '@/components/contact-section';
+import FindMeOnlineSection from '@/components/find-me-online-section';
 import Footer from '@/components/footer';
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
         <SkillsSection />
         <JourneySection />
         <ContactSection />
+        <FindMeOnlineSection />
       </main>
       <Footer />
     </div>
