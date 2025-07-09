@@ -8,29 +8,29 @@ const socialLinks = [
   {
     icon: <Github className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />,
     name: 'GitHub',
-    handle: '@your-username',
-    href: '#',
+    handle: '@shaswati',
+    href: 'https://github.com/Shaswati2005',
     cta: 'View on GitHub'
   },
   {
     icon: <Linkedin className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />,
     name: 'LinkedIn',
-    handle: 'Your Name',
-    href: '#',
+    handle: 'Shaswati Mishra ',
+    href: 'www.linkedin.com/in/shaswati-mishra',
     cta: 'Connect on LinkedIn'
   },
   {
     icon: <CodeXml className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />,
     name: 'Codeforces',
-    handle: '@your-username',
-    href: '#',
+    handle: '@shaswati_mishra',
+    href: 'https://codeforces.com/profile/shaswati_mishra',
     cta: 'View Profile'
   },
   {
     icon: <LeetCodeIcon className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />,
     name: 'LeetCode',
-    handle: '@your-username',
-    href: '#',
+    handle: '@shaswatimishar',
+    href: 'https://leetcode.com/u/Shaswatimishar/',
     cta: 'View Profile'
   },
   {
