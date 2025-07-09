@@ -1,6 +1,8 @@
-import { Card, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { CardTitle, CardDescription } from "@/components/ui/card";
 import Image from 'next/image';
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Github, ExternalLink } from "lucide-react";
 
 const projects = [
   {
@@ -8,21 +10,27 @@ const projects = [
     description: "A minimalist e-commerce platform with a focus on user experience and beautiful product presentation. Built with Next.js and Stripe.",
     image: "https://placehold.co/600x400.png",
     tags: ["Next.js", "React", "Stripe", "Tailwind CSS"],
-    aiHint: "minimalist e-commerce"
+    aiHint: "minimalist e-commerce",
+    githubUrl: "#",
+    deployedUrl: "#",
   },
   {
     title: "Blossom Blogging",
     description: "A content-focused blogging platform with a clean, readable interface and markdown support. Features a custom CMS.",
     image: "https://placehold.co/600x400.png",
     tags: ["React", "Firebase", "Markdown", "UI/UX"],
-    aiHint: "aesthetic blog"
+    aiHint: "aesthetic blog",
+    githubUrl: "#",
+    deployedUrl: "#",
   },
   {
     title: "Zenith Dashboard",
     description: "An analytics dashboard for a SaaS product, providing users with clear data visualizations and insights. Designed for clarity and ease of use.",
     image: "https://placehold.co/600x400.png",
     tags: ["TypeScript", "Data Viz", "Figma", "React"],
-    aiHint: "analytics dashboard"
+    aiHint: "analytics dashboard",
+    githubUrl: "#",
+    deployedUrl: "#",
   },
 ];
 
@@ -39,27 +47,44 @@ export default function ProjectsSection() {
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
-            <Card key={project.title} className="overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl animate-fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>
-              <div className="aspect-video overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  data-ai-hint={project.aiHint}
-                  width={600}
-                  height={400}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                />
-              </div>
-              <CardContent className="p-6">
+            <div key={project.title} className="group relative aspect-video w-full overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-primary/30 animate-fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>
+              <Image
+                src={project.image}
+                alt={project.title}
+                data-ai-hint={project.aiHint}
+                width={600}
+                height={400}
+                className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              <h3 className="absolute bottom-5 left-5 text-2xl font-bold text-white font-headline transition-all duration-300 ease-in-out group-hover:bottom-[-50px] group-hover:opacity-0">
+                {project.title}
+              </h3>
+              
+              <div className="absolute inset-0 flex flex-col justify-center items-center p-6 text-center bg-card/95 opacity-0 backdrop-blur-sm transition-all duration-500 ease-in-out group-hover:opacity-100 border-2 border-transparent group-hover:border-primary/50 rounded-lg">
                 <CardTitle className="text-xl font-bold font-headline mb-2">{project.title}</CardTitle>
                 <CardDescription className="mb-4 text-foreground/80">{project.description}</CardDescription>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap justify-center gap-2 mb-6">
                   {project.tags.map(tag => (
                     <Badge key={tag} variant="secondary">{tag}</Badge>
                   ))}
                 </div>
-              </CardContent>
-            </Card>
+                <div className="flex items-center gap-4">
+                  <Button asChild size="sm">
+                      <a href={project.githubUrl} target="_blank" rel="noreferrer">
+                          <Github className="mr-2 h-4 w-4"/>
+                          GitHub
+                      </a>
+                  </Button>
+                  <Button asChild variant="outline" size="sm">
+                      <a href={project.deployedUrl} target="_blank" rel="noreferrer">
+                          <ExternalLink className="mr-2 h-4 w-4"/>
+                          Live Site
+                      </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
