@@ -3,6 +3,8 @@ import { Toaster } from "@/components/ui/toaster";
 import './globals.css';
 import CursorPetalEffect from '@/components/cursor-petal-effect';
 import FallingPetals from '@/components/falling-petals';
+import { TransitionProvider } from '@/context/transition-context';
+import TransitionEffect from '@/components/transition-effect';
 
 export const metadata: Metadata = {
   title: 'Sakura Portfolio',
@@ -22,10 +24,13 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        <CursorPetalEffect />
-        <FallingPetals />
-        {children}
-        <Toaster />
+        <TransitionProvider>
+          <CursorPetalEffect />
+          <FallingPetals />
+          {children}
+          <Toaster />
+          <TransitionEffect />
+        </TransitionProvider>
       </body>
     </html>
   );

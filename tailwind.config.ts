@@ -131,6 +131,16 @@ export default {
           '0%, 100%': { opacity: '0.5', transform: 'scale(1)' },
           '50%': { opacity: '1', transform: 'scale(1.02)' },
         },
+        'transition-fade': {
+          '0%': { opacity: '0' },
+          '20%, 80%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
+        'transition-blossom': {
+            '0%': { transform: 'scale(0.5)', opacity: '0' },
+            '20%, 80%': { transform: 'scale(1)', opacity: '1' },
+            '100%': { transform: 'scale(1.2)', opacity: '0' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -144,6 +154,8 @@ export default {
         'cursor-petal': 'cursor-petal var(--petal-duration, 1.5s) ease-out forwards',
         'falling-petal': 'falling-petal linear infinite',
         'pulse-slow': 'pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'transition-fade': 'transition-fade 1s ease-in-out forwards',
+        'transition-blossom': 'transition-blossom 1s ease-in-out forwards',
       },
     },
   },
